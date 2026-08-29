@@ -1,0 +1,40 @@
+.env
+*.env
+
+__pycache__/
+*.pyc
+.pytest_cache/
+
+.venv/
+venv/
+env/
+
+.vscode/
+.idea/
+
+.ipynb_checkpoints/
+
+*.log
+
+# Large model files
+*.pt
+*.pth
+*.bin
+*.safetensors
+
+# Generated indexes / caches
+*.index
+.cache/
+
+# Temporary files
+tmp/
+temp/
+
+# Python distribution
+dist/
+build/
+*.egg-info/
+
+# OS files
+.DS_Store
+Thumbs.db
