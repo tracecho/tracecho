@@ -1,0 +1,27 @@
+{
+  "benchmark_size": 5,
+  "answerable_questions": 3,
+  "out_of_domain_questions": 2,
+  "methods": {
+    "vector": {
+      "recall_at_5": 0.0,
+      "mrr": 0.0
+    },
+    "bm25": {
+      "recall_at_5": 0.0,
+      "mrr": 0.0
+    },
+    "hybrid": {
+      "recall_at_5": 0.0,
+      "mrr": 0.0
+    },
+    "hybrid_reranking": {
+      "recall_at_5": 0.0,
+      "mrr": 0.0
+    },
+    "agentic": {
+      "recall_at_5": 0.0,
+      "mrr": 0.0
+    }
+  }
+}

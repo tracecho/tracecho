@@ -3,15 +3,30 @@ import json
 import pickle
 from rank_bm25 import BM25Okapi
 
+_DEFAULT_DATA_DIR = os.path.join(os.path.dirname(__file__), "..", "data", "processed")
+
 class RegintelBM25Store:
-    def __init__(self, index_path="d:/REGINTEL/regintel/data/processed/bm25_index.pkl", meta_path="d:/REGINTEL/regintel/data/processed/bm25_meta.json"):
+    def __init__(self,
+                 index_path: str = "",
+                 meta_path: str = ""):
+        if not index_path:
+            index_path = os.path.join(_DEFAULT_DATA_DIR, "bm25_index.pkl")
+        if not meta_path:
+            meta_path = os.path.join(_DEFAULT_DATA_DIR, "bm25_meta.json")
         self.index_path = index_path
         self.meta_path = meta_path
         self.bm25 = None
         self.chunk_ids = []
 
     def _tokenize(self, text):
-        return str(text).lower().split()
+        import re
+        # Remove common repetitive boilerplate words to prevent them from dominating BM25
+        t = str(text).lower()
+        t = re.sub(r'\b(tel|email|website|reserve bank of india|sebi|master direction|master circular|website|http|www)\b', '', t)
+        
+        # Keep alphanumeric, filter out noisy punctuation standalone tokens
+        tokens = [word for word in t.split() if re.match(r'^[a-z0-9]', word)]
+        return tokens
 
     def build_index(self, texts, chunk_ids):
         tokenized_corpus = [self._tokenize(doc) for doc in texts]

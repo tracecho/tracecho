@@ -3,7 +3,7 @@ import json
 import os
 
 class MetadataStore:
-    def __init__(self, metadata_path="d:/REGINTEL/regintel/data/processed/metadata.json"):
+    def __init__(self, metadata_path=r"D:\REGINTEL-20260820T084445Z-1-001\REGINTEL\regintel\data\processed\metadata.json"):
         self.metadata_path = metadata_path
         self.metadata = {}
 
@@ -16,12 +16,12 @@ class MetadataStore:
         # Select columns to store
         cols = ['chunk_id', 'document_id', 'regulator', 'subject', 'document_type', 
                 'section', 'paragraph', 'issue_date', 'effective_date', 
-                'validity_status', 'source_url', 'text']
+                'validity_status', 'source_url', 'text', 'document_origin']
         
         # Missing columns can exist
         actual_cols = [c for c in cols if c in df.columns]
         
-        self.metadata = df.set_index('chunk_id')[actual_cols].to_dict(orient='index')
+        self.metadata = df.set_index('chunk_id')[[c for c in actual_cols if c != 'chunk_id']].to_dict(orient='index')
         
         with open(self.metadata_path, 'w', encoding='utf-8') as f:
             json.dump(self.metadata, f)

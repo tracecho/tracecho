@@ -111,6 +111,8 @@ def guardrails_node(state: dict) -> dict:
     """Validate reasoning_output; replace with a safe response on failure."""
     chunks = state.get("chunks") or []
     raw = state.get("reasoning_output") or {}
+    verif = state.get("verification_output") or {}
+    
     ro = deepcopy(raw) if isinstance(raw, dict) else {}
     valid_ids = {c.get("chunk_id") for c in chunks if c.get("chunk_id")}
 
@@ -122,6 +124,8 @@ def guardrails_node(state: dict) -> dict:
         "no_chain_of_thought": True,
         "sebi_rbi_scope": True,
         "no_unsupported_claims": True,
+        "regulatory_validity": True,
+        "temporal_validity": True
     }
     failures = []
     modified = False
@@ -130,23 +134,31 @@ def guardrails_node(state: dict) -> dict:
         checks["has_retrieved_chunks"] = False
         failures.append("no_retrieved_chunks")
 
-    citations = ro.get("citations") or []
-    if not _citations_grounded(citations, valid_ids):
-        checks["citations_grounded"] = False
-        failures.append("ungrounded_citations")
-    else:
-        cleaned = [c for c in citations if c.get("chunk_id") in valid_ids]
-        if len(cleaned) != len(citations):
-            ro["citations"] = cleaned
-            modified = True
-            citations = cleaned
-
-    kept_quotes, dropped_quotes = _filter_grounded_quotes(
-        ro.get("evidence") or [], chunks
-    )
-    if dropped_quotes:
+    if verif.get("citation_errors"):
+        invalid_ids = [err for err in verif["citation_errors"] if "invalid chunk_id" in err]
+        if invalid_ids:
+            checks["citations_grounded"] = False
+            # We don't hard fail on invalid citation ids, we just clean them out.
+        
+    if verif.get("evidence_quote_errors"):
         checks["evidence_quotes_grounded"] = False
-        ro["evidence"] = kept_quotes
+        # Treat as soft failure; drop the quotes later but don't hard block
+        
+    if verif.get("unsupported_claims"):
+        checks["no_unsupported_claims"] = False
+        # Soft failure: just record it, don't hard block
+        
+    if verif.get("regulatory_validity_errors"):
+        checks["regulatory_validity"] = False
+        # Soft failure, add disclaimer
+        ro["answer"] = str(ro.get("answer", "")) + "\n\nDisclaimer: The current validity of some referenced regulations cannot be established or they may be superseded."
+        modified = True
+
+    if verif.get("temporal_errors"):
+        checks["temporal_validity"] = False
+        # Soft failure, add disclaimer
+        if "Disclaimer:" not in str(ro.get("answer", "")):
+            ro["answer"] = str(ro.get("answer", "")) + "\n\nDisclaimer: The regulation's current validity or historical applicability cannot be fully established based on the evidence."
         modified = True
 
     answer = str(ro.get("answer") or "")
@@ -158,60 +170,54 @@ def guardrails_node(state: dict) -> dict:
         checks["sebi_rbi_scope"] = False
         failures.append("out_of_scope")
 
-    evidence_insufficient = bool(ro.get("evidence_insufficient"))
-    if evidence_insufficient and not _INSUFFICIENT_LANG.search(answer):
-        if _answer_is_evidence_backed(ro, citations, kept_quotes, chunks) or (len(answer) >= 50 and chunks):
-            # LLM set the flag incorrectly despite a grounded answer; keep the answer.
-            ro["evidence_insufficient"] = False
-            evidence_insufficient = False
-            modified = True
-        else:
-            checks["insufficient_flag_consistent"] = False
-            failures.append("insufficient_not_stated")
+    evidence_insufficient = bool(ro.get("evidence_insufficient")) or (verif.get("recommended_action") == "INSUFFICIENT_EVIDENCE")
 
-    if (
-        not evidence_insufficient
-        and chunks
-        and not citations
-        and (ro.get("regulatory_requirement") or "").strip()
-    ):
-        checks["no_unsupported_claims"] = False
-        failures.append("requirement_without_citations")
+    if not evidence_insufficient:
+        if chunks and not ro.get("citations") and (ro.get("regulatory_requirement") or "").strip():
+            checks["no_unsupported_claims"] = False
+            # Soft failure; they might have provided partial info without a formal citation
 
-    if not evidence_insufficient and not chunks:
-        checks["no_unsupported_claims"] = False
-        failures.append("claims_without_evidence")
+        if not chunks:
+            checks["no_unsupported_claims"] = False
+            failures.append("claims_without_evidence")
 
-    hard_failures = [f for f in failures if f != "insufficient_not_stated"]
+    hard_failures = failures
     blocked = False
     final = ro
 
     if hard_failures:
         blocked = True
+        modified = True
         if "out_of_scope" in hard_failures and not chunks:
             final = _safe_payload(_SAFE_OUT_OF_SCOPE, ";".join(failures))
         else:
             final = _safe_payload(_SAFE_INSUFFICIENT, ";".join(failures))
         final["citations"] = []
-    elif "insufficient_not_stated" in failures:
+    elif evidence_insufficient:
+        blocked = True
         if answer.startswith("Reasoning step failed:"):
             final = ro
         else:
             final = deepcopy(ro)
             final["answer"] = _SAFE_INSUFFICIENT
             final["evidence_insufficient"] = True
-            final["citations"] = [
-                c for c in (final.get("citations") or []) if c.get("chunk_id") in valid_ids
-            ]
+            final["citations"] = []
             modified = True
-
+            
+    # Clean citations if any are left
     if final.get("citations"):
         cleaned = [c for c in final["citations"] if c.get("chunk_id") in valid_ids]
         if len(cleaned) != len(final["citations"]):
             final["citations"] = cleaned
             modified = True
+            
+    # Clean evidence quotes as well
+    if final.get("evidence"):
+        kept, dropped = _filter_grounded_quotes(final["evidence"], chunks)
+        if dropped:
+            final["evidence"] = kept
+            modified = True
 
-    # Soft fixes (quote stripping / insufficiency wording) still count as passed.
     passed = not blocked
 
     return {

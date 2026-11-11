@@ -24,6 +24,11 @@ class AgentState(TypedDict, total=False):
     # Retrieval node output: list of chunk dicts as produced by
     # RegintelHybridRetriever.search()
     chunks: List[Dict[str, Any]]
+    retrieval_iterations: int
+
+    # Evidence sufficiency check output
+    evidence_sufficiency_output: Dict[str, Any]
+    # Expected shape: { "status": "SUPPORTED" | "RETRY" | "INSUFFICIENT_EVIDENCE" | "CLARIFY", "reason": str }
 
     # Reasoning node output: structured answer derived ONLY from chunks
     reasoning_output: Dict[str, Any]
@@ -50,6 +55,7 @@ class AgentState(TypedDict, total=False):
     #     "modified": bool,
     #   }
     final_output: Dict[str, Any]
+    verification_output: Dict[str, Any]
 
     # Error surface for any node
     error: str

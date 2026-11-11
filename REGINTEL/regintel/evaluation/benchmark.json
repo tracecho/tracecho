@@ -1,0 +1,832 @@
+[
+  {
+    "id": "q_000",
+    "question": "What are the KYC requirements applicable to NBFCs?",
+    "category": "Direct regulatory",
+    "regulator": "RBI",
+    "temporal_type": "CURRENT",
+    "temporal_start": "",
+    "temporal_end": "",
+    "difficulty": "Medium",
+    "answerable": true,
+    "expected_document_ids": [
+      "RBI-RBI_0402.txt"
+    ],
+    "expected_chunk_ids": [
+      "RBI-RBI_0402.txt-30"
+    ]
+  },
+  {
+    "id": "q_001",
+    "question": "What are the responsibilities of investment advisers under SEBI regulations?",
+    "category": "Direct regulatory",
+    "regulator": "SEBI",
+    "temporal_type": "CURRENT",
+    "temporal_start": "",
+    "temporal_end": "",
+    "difficulty": "Medium",
+    "answerable": true,
+    "expected_document_ids": [
+      "SEBI-DOF1/P/CIR/2021/694"
+    ],
+    "expected_chunk_ids": [
+      "SEBI-DOF1/P/CIR/2021/694-0"
+    ]
+  },
+  {
+    "id": "q_002",
+    "question": "What are the regulations governing coffee shops on Mars?",
+    "category": "Out-of-domain",
+    "regulator": "UNKNOWN",
+    "temporal_type": "CURRENT",
+    "temporal_start": "",
+    "temporal_end": "",
+    "difficulty": "Medium",
+    "answerable": false,
+    "expected_document_ids": [],
+    "expected_chunk_ids": []
+  },
+  {
+    "id": "q_003",
+    "question": "What were the KYC requirements for NBFCs in 2022?",
+    "category": "Temporal/historical",
+    "regulator": "RBI",
+    "temporal_type": "HISTORICAL",
+    "temporal_start": "2020-01-01",
+    "temporal_end": "2022-12-31",
+    "difficulty": "Medium",
+    "answerable": true,
+    "expected_document_ids": [
+      "RBI-RBI_0381.txt"
+    ],
+    "expected_chunk_ids": [
+      "RBI-RBI_0381.txt-9"
+    ]
+  },
+  {
+    "id": "q_004",
+    "question": "What is the current Bitcoin price?",
+    "category": "Out-of-domain",
+    "regulator": "UNKNOWN",
+    "temporal_type": "CURRENT",
+    "temporal_start": "",
+    "temporal_end": "",
+    "difficulty": "Medium",
+    "answerable": false,
+    "expected_document_ids": [],
+    "expected_chunk_ids": []
+  },
+  {
+    "id": "q_005",
+    "question": "What is the maximum penalty for insider trading?",
+    "category": "Direct regulatory",
+    "regulator": "SEBI",
+    "temporal_type": "CURRENT",
+    "temporal_start": "",
+    "temporal_end": "",
+    "difficulty": "Medium",
+    "answerable": true,
+    "expected_document_ids": [
+      "SEBI-SEBI/HO/ISD/ISD-PoD-2/P/CIR/2024/126"
+    ],
+    "expected_chunk_ids": [
+      "SEBI-SEBI/HO/ISD/ISD-PoD-2/P/CIR/2024/126-0"
+    ]
+  },
+  {
+    "id": "q_006",
+    "question": "What are the capital adequacy requirements for tier 1 urban cooperative banks?",
+    "category": "Direct regulatory",
+    "regulator": "RBI",
+    "temporal_type": "CURRENT",
+    "temporal_start": "",
+    "temporal_end": "",
+    "difficulty": "Medium",
+    "answerable": true,
+    "expected_document_ids": [
+      "RBI-RBI_0006.txt"
+    ],
+    "expected_chunk_ids": [
+      "RBI-RBI_0006.txt-2"
+    ]
+  },
+  {
+    "id": "q_007",
+    "question": "What are the guidelines on grievance redressal mechanisms for mutual funds?",
+    "category": "Direct regulatory",
+    "regulator": "SEBI",
+    "temporal_type": "CURRENT",
+    "temporal_start": "",
+    "temporal_end": "",
+    "difficulty": "Medium",
+    "answerable": true,
+    "expected_document_ids": [
+      "RBI-RBI_0382.txt"
+    ],
+    "expected_chunk_ids": [
+      "RBI-RBI_0382.txt-6"
+    ]
+  },
+  {
+    "id": "q_008",
+    "question": "What are the rules for early withdrawal of fixed deposits?",
+    "category": "Direct regulatory",
+    "regulator": "RBI",
+    "temporal_type": "CURRENT",
+    "temporal_start": "",
+    "temporal_end": "",
+    "difficulty": "Medium",
+    "answerable": true,
+    "expected_document_ids": [
+      "RBI-RBI_0071.txt"
+    ],
+    "expected_chunk_ids": [
+      "RBI-RBI_0071.txt-94"
+    ]
+  },
+  {
+    "id": "q_009",
+    "question": "What are the disclosure requirements for a company launching an IPO?",
+    "category": "Direct regulatory",
+    "regulator": "SEBI",
+    "temporal_type": "CURRENT",
+    "temporal_start": "",
+    "temporal_end": "",
+    "difficulty": "Medium",
+    "answerable": true,
+    "expected_document_ids": [
+      "RBI-RBI_0012.txt"
+    ],
+    "expected_chunk_ids": [
+      "RBI-RBI_0012.txt-154"
+    ]
+  },
+  {
+    "id": "q_010",
+    "question": "What is the role of a debenture trustee?",
+    "category": "Direct regulatory",
+    "regulator": "SEBI",
+    "temporal_type": "CURRENT",
+    "temporal_start": "",
+    "temporal_end": "",
+    "difficulty": "Medium",
+    "answerable": true,
+    "expected_document_ids": [
+      "RBI-RBI_0429.txt"
+    ],
+    "expected_chunk_ids": [
+      "RBI-RBI_0429.txt-11"
+    ]
+  },
+  {
+    "id": "q_011",
+    "question": "What are the limits on lending to a single borrower by NBFCs?",
+    "category": "Direct regulatory",
+    "regulator": "RBI",
+    "temporal_type": "CURRENT",
+    "temporal_start": "",
+    "temporal_end": "",
+    "difficulty": "Medium",
+    "answerable": true,
+    "expected_document_ids": [
+      "RBI-RBI_0388.txt"
+    ],
+    "expected_chunk_ids": [
+      "RBI-RBI_0388.txt-36"
+    ]
+  },
+  {
+    "id": "q_012",
+    "question": "What are the margin requirements for derivatives trading?",
+    "category": "Direct regulatory",
+    "regulator": "SEBI",
+    "temporal_type": "CURRENT",
+    "temporal_start": "",
+    "temporal_end": "",
+    "difficulty": "Medium",
+    "answerable": true,
+    "expected_document_ids": [
+      "RBI-RBI_0071.txt"
+    ],
+    "expected_chunk_ids": [
+      "RBI-RBI_0071.txt-19"
+    ]
+  },
+  {
+    "id": "q_013",
+    "question": "What are the fair practices code for housing finance companies?",
+    "category": "Direct regulatory",
+    "regulator": "RBI",
+    "temporal_type": "CURRENT",
+    "temporal_start": "",
+    "temporal_end": "",
+    "difficulty": "Medium",
+    "answerable": true,
+    "expected_document_ids": [
+      "RBI-RBI_0214.txt"
+    ],
+    "expected_chunk_ids": [
+      "RBI-RBI_0214.txt-94"
+    ]
+  },
+  {
+    "id": "q_014",
+    "question": "What are the continuous disclosure requirements for listed entities?",
+    "category": "Direct regulatory",
+    "regulator": "SEBI",
+    "temporal_type": "CURRENT",
+    "temporal_start": "",
+    "temporal_end": "",
+    "difficulty": "Medium",
+    "answerable": true,
+    "expected_document_ids": [
+      "SEBI-SEBI/HO/DDHS/DDHS-PoD-1/P/CIR/2024/48"
+    ],
+    "expected_chunk_ids": [
+      "SEBI-SEBI/HO/DDHS/DDHS-PoD-1/P/CIR/2024/48-0"
+    ]
+  },
+  {
+    "id": "q_015",
+    "question": "What are the prudential norms on income recognition and asset classification?",
+    "category": "Direct regulatory",
+    "regulator": "RBI",
+    "temporal_type": "CURRENT",
+    "temporal_start": "",
+    "temporal_end": "",
+    "difficulty": "Medium",
+    "answerable": true,
+    "expected_document_ids": [
+      "RBI-RBI_0010.txt"
+    ],
+    "expected_chunk_ids": [
+      "RBI-RBI_0010.txt-4"
+    ]
+  },
+  {
+    "id": "q_016",
+    "question": "What are the rules regarding related party transactions?",
+    "category": "Direct regulatory",
+    "regulator": "SEBI",
+    "temporal_type": "CURRENT",
+    "temporal_start": "",
+    "temporal_end": "",
+    "difficulty": "Medium",
+    "answerable": true,
+    "expected_document_ids": [
+      "RBI-RBI_0231.txt"
+    ],
+    "expected_chunk_ids": [
+      "RBI-RBI_0231.txt-34"
+    ]
+  },
+  {
+    "id": "q_017",
+    "question": "What are the guidelines for outsourcing of financial services?",
+    "category": "Direct regulatory",
+    "regulator": "RBI",
+    "temporal_type": "CURRENT",
+    "temporal_start": "",
+    "temporal_end": "",
+    "difficulty": "Medium",
+    "answerable": true,
+    "expected_document_ids": [
+      "RBI-RBI_0074.txt"
+    ],
+    "expected_chunk_ids": [
+      "RBI-RBI_0074.txt-10"
+    ]
+  },
+  {
+    "id": "q_018",
+    "question": "Are foreign portfolio investors allowed to invest in real estate?",
+    "category": "Applicability",
+    "regulator": "SEBI",
+    "temporal_type": "CURRENT",
+    "temporal_start": "",
+    "temporal_end": "",
+    "difficulty": "Medium",
+    "answerable": true,
+    "expected_document_ids": [
+      "SEBI-SEBI/HO/AFD/AFD-POD-3/P/CIR/2024/152"
+    ],
+    "expected_chunk_ids": [
+      "SEBI-SEBI/HO/AFD/AFD-POD-3/P/CIR/2024/152-0"
+    ]
+  },
+  {
+    "id": "q_019",
+    "question": "Can non-resident Indians hold joint accounts with residents?",
+    "category": "Applicability",
+    "regulator": "RBI",
+    "temporal_type": "CURRENT",
+    "temporal_start": "",
+    "temporal_end": "",
+    "difficulty": "Medium",
+    "answerable": true,
+    "expected_document_ids": [
+      "RBI-RBI_0439.txt"
+    ],
+    "expected_chunk_ids": [
+      "RBI-RBI_0439.txt-20"
+    ]
+  },
+  {
+    "id": "q_020",
+    "question": "Are credit rating agencies regulated by SEBI?",
+    "category": "Applicability",
+    "regulator": "SEBI",
+    "temporal_type": "CURRENT",
+    "temporal_start": "",
+    "temporal_end": "",
+    "difficulty": "Medium",
+    "answerable": true,
+    "expected_document_ids": [
+      "SEBI-SEBI/HO/DDHS/DDHS-PoD-2/I/4685/2026"
+    ],
+    "expected_chunk_ids": [
+      "SEBI-SEBI/HO/DDHS/DDHS-PoD-2/I/4685/2026-0"
+    ]
+  },
+  {
+    "id": "q_021",
+    "question": "Does the regulatory sandbox apply to new startups?",
+    "category": "Applicability",
+    "regulator": "RBI",
+    "temporal_type": "CURRENT",
+    "temporal_start": "",
+    "temporal_end": "",
+    "difficulty": "Medium",
+    "answerable": true,
+    "expected_document_ids": [
+      "RBI-RBI_0416.txt"
+    ],
+    "expected_chunk_ids": [
+      "RBI-RBI_0416.txt-21"
+    ]
+  },
+  {
+    "id": "q_022",
+    "question": "Are mutual funds permitted to borrow funds for investment purposes?",
+    "category": "Applicability",
+    "regulator": "SEBI",
+    "temporal_type": "CURRENT",
+    "temporal_start": "",
+    "temporal_end": "",
+    "difficulty": "Medium",
+    "answerable": true,
+    "expected_document_ids": [
+      "SEBI-HO/(92)2026-IMD-POD-2/I/16006/2026"
+    ],
+    "expected_chunk_ids": [
+      "SEBI-HO/(92)2026-IMD-POD-2/I/16006/2026-0"
+    ]
+  },
+  {
+    "id": "q_023",
+    "question": "Do primary dealers need a special license for forex trading?",
+    "category": "Applicability",
+    "regulator": "RBI",
+    "temporal_type": "CURRENT",
+    "temporal_start": "",
+    "temporal_end": "",
+    "difficulty": "Medium",
+    "answerable": true,
+    "expected_document_ids": [
+      "RBI-RBI_0021.txt"
+    ],
+    "expected_chunk_ids": [
+      "RBI-RBI_0021.txt-2"
+    ]
+  },
+  {
+    "id": "q_024",
+    "question": "Can unlisted companies issue commercial paper?",
+    "category": "Applicability",
+    "regulator": "RBI",
+    "temporal_type": "CURRENT",
+    "temporal_start": "",
+    "temporal_end": "",
+    "difficulty": "Medium",
+    "answerable": true,
+    "expected_document_ids": [
+      "RBI-RBI_0114.txt"
+    ],
+    "expected_chunk_ids": [
+      "RBI-RBI_0114.txt-52"
+    ]
+  },
+  {
+    "id": "q_025",
+    "question": "Are alternative investment funds required to appoint a custodian?",
+    "category": "Applicability",
+    "regulator": "SEBI",
+    "temporal_type": "CURRENT",
+    "temporal_start": "",
+    "temporal_end": "",
+    "difficulty": "Medium",
+    "answerable": true,
+    "expected_document_ids": [
+      "SEBI-SEBI/HO/AFD/PoD/CIR/2024/5"
+    ],
+    "expected_chunk_ids": [
+      "SEBI-SEBI/HO/AFD/PoD/CIR/2024/5-0"
+    ]
+  },
+  {
+    "id": "q_026",
+    "question": "What were the margin trading rules in 2021?",
+    "category": "Temporal/historical",
+    "regulator": "SEBI",
+    "temporal_type": "HISTORICAL",
+    "temporal_start": "2020-01-01",
+    "temporal_end": "2022-12-31",
+    "difficulty": "Medium",
+    "answerable": true,
+    "expected_document_ids": [
+      "SEBI-SEBI/HO/MRD/MRD-PoD-2/P/CIR/2025/120"
+    ],
+    "expected_chunk_ids": [
+      "SEBI-SEBI/HO/MRD/MRD-PoD-2/P/CIR/2025/120-0"
+    ]
+  },
+  {
+    "id": "q_027",
+    "question": "How did the NPA classification rules change before 2023?",
+    "category": "Temporal/historical",
+    "regulator": "RBI",
+    "temporal_type": "HISTORICAL",
+    "temporal_start": "2020-01-01",
+    "temporal_end": "2022-12-31",
+    "difficulty": "Medium",
+    "answerable": true,
+    "expected_document_ids": [
+      "RBI-RBI_0103.txt"
+    ],
+    "expected_chunk_ids": [
+      "RBI-RBI_0103.txt-25"
+    ]
+  },
+  {
+    "id": "q_028",
+    "question": "What was the limit for foreign investment in corporate bonds in 2020?",
+    "category": "Temporal/historical",
+    "regulator": "RBI",
+    "temporal_type": "HISTORICAL",
+    "temporal_start": "2020-01-01",
+    "temporal_end": "2022-12-31",
+    "difficulty": "Medium",
+    "answerable": true,
+    "expected_document_ids": [
+      "RBI-RBI_0425.txt"
+    ],
+    "expected_chunk_ids": [
+      "RBI-RBI_0425.txt-5"
+    ]
+  },
+  {
+    "id": "q_029",
+    "question": "What were the guidelines for independent directors before 2022?",
+    "category": "Temporal/historical",
+    "regulator": "SEBI",
+    "temporal_type": "HISTORICAL",
+    "temporal_start": "2020-01-01",
+    "temporal_end": "2022-12-31",
+    "difficulty": "Medium",
+    "answerable": true,
+    "expected_document_ids": [
+      "RBI-RBI_0098.txt"
+    ],
+    "expected_chunk_ids": [
+      "RBI-RBI_0098.txt-5"
+    ]
+  },
+  {
+    "id": "q_030",
+    "question": "How were payment aggregators regulated in 2019?",
+    "category": "Temporal/historical",
+    "regulator": "RBI",
+    "temporal_type": "HISTORICAL",
+    "temporal_start": "2020-01-01",
+    "temporal_end": "2022-12-31",
+    "difficulty": "Medium",
+    "answerable": true,
+    "expected_document_ids": [
+      "RBI-RBI_0444.txt"
+    ],
+    "expected_chunk_ids": [
+      "RBI-RBI_0444.txt-0"
+    ]
+  },
+  {
+    "id": "q_031",
+    "question": "What were the disclosure requirements for mutual funds in 2018?",
+    "category": "Temporal/historical",
+    "regulator": "SEBI",
+    "temporal_type": "HISTORICAL",
+    "temporal_start": "2020-01-01",
+    "temporal_end": "2022-12-31",
+    "difficulty": "Medium",
+    "answerable": true,
+    "expected_document_ids": [
+      "SEBI-SEBI/HO/IMD/PoD1/CIR/P/2024/150"
+    ],
+    "expected_chunk_ids": [
+      "SEBI-SEBI/HO/IMD/PoD1/CIR/P/2024/150-0"
+    ]
+  },
+  {
+    "id": "q_032",
+    "question": "Under what conditions can a bank exceed the single borrower limit?",
+    "category": "Exception/condition",
+    "regulator": "RBI",
+    "temporal_type": "CURRENT",
+    "temporal_start": "",
+    "temporal_end": "",
+    "difficulty": "Medium",
+    "answerable": true,
+    "expected_document_ids": [
+      "RBI-RBI_0142.txt"
+    ],
+    "expected_chunk_ids": [
+      "RBI-RBI_0142.txt-87"
+    ]
+  },
+  {
+    "id": "q_033",
+    "question": "Are there exemptions for startups regarding mandatory disclosures?",
+    "category": "Exception/condition",
+    "regulator": "SEBI",
+    "temporal_type": "CURRENT",
+    "temporal_start": "",
+    "temporal_end": "",
+    "difficulty": "Medium",
+    "answerable": true,
+    "expected_document_ids": [
+      "RBI-RBI_0092.txt"
+    ],
+    "expected_chunk_ids": [
+      "RBI-RBI_0092.txt-49"
+    ]
+  },
+  {
+    "id": "q_034",
+    "question": "When can an NBFC accept public deposits?",
+    "category": "Exception/condition",
+    "regulator": "RBI",
+    "temporal_type": "CURRENT",
+    "temporal_start": "",
+    "temporal_end": "",
+    "difficulty": "Medium",
+    "answerable": true,
+    "expected_document_ids": [
+      "RBI-RBI_0402.txt"
+    ],
+    "expected_chunk_ids": [
+      "RBI-RBI_0402.txt-12"
+    ]
+  },
+  {
+    "id": "q_035",
+    "question": "In what cases can trading limits be relaxed for a broker?",
+    "category": "Exception/condition",
+    "regulator": "SEBI",
+    "temporal_type": "CURRENT",
+    "temporal_start": "",
+    "temporal_end": "",
+    "difficulty": "Medium",
+    "answerable": true,
+    "expected_document_ids": [
+      "RBI-RBI_0142.txt"
+    ],
+    "expected_chunk_ids": [
+      "RBI-RBI_0142.txt-94"
+    ]
+  },
+  {
+    "id": "q_036",
+    "question": "What are the exceptions to the lock-in period for anchor investors?",
+    "category": "Exception/condition",
+    "regulator": "SEBI",
+    "temporal_type": "CURRENT",
+    "temporal_start": "",
+    "temporal_end": "",
+    "difficulty": "Medium",
+    "answerable": true,
+    "expected_document_ids": [
+      "RBI-RBI_0177.txt"
+    ],
+    "expected_chunk_ids": [
+      "RBI-RBI_0177.txt-18"
+    ]
+  },
+  {
+    "id": "q_037",
+    "question": "What is the difference in capital requirements between tier 1 and tier 2 UCBs?",
+    "category": "Comparison",
+    "regulator": "RBI",
+    "temporal_type": "CURRENT",
+    "temporal_start": "",
+    "temporal_end": "",
+    "difficulty": "Medium",
+    "answerable": true,
+    "expected_document_ids": [
+      "RBI-RBI_0006.txt"
+    ],
+    "expected_chunk_ids": [
+      "RBI-RBI_0006.txt-2"
+    ]
+  },
+  {
+    "id": "q_038",
+    "question": "How do disclosure norms for REITs compare with InvITs?",
+    "category": "Comparison",
+    "regulator": "SEBI",
+    "temporal_type": "CURRENT",
+    "temporal_start": "",
+    "temporal_end": "",
+    "difficulty": "Medium",
+    "answerable": true,
+    "expected_document_ids": [
+      "SEBI-SEBI/HO/MRD/MRD-PoD-3/P/CIR/2023/134"
+    ],
+    "expected_chunk_ids": [
+      "SEBI-SEBI/HO/MRD/MRD-PoD-3/P/CIR/2023/134-0"
+    ]
+  },
+  {
+    "id": "q_039",
+    "question": "Compare the reporting requirements for commercial banks vs cooperative banks.",
+    "category": "Comparison",
+    "regulator": "RBI",
+    "temporal_type": "CURRENT",
+    "temporal_start": "",
+    "temporal_end": "",
+    "difficulty": "Medium",
+    "answerable": true,
+    "expected_document_ids": [
+      "RBI-RBI_0276.txt"
+    ],
+    "expected_chunk_ids": [
+      "RBI-RBI_0276.txt-36"
+    ]
+  },
+  {
+    "id": "q_040",
+    "question": "What are the differences between Category I and Category II AIFs?",
+    "category": "Comparison",
+    "regulator": "SEBI",
+    "temporal_type": "CURRENT",
+    "temporal_start": "",
+    "temporal_end": "",
+    "difficulty": "Medium",
+    "answerable": true,
+    "expected_document_ids": [
+      "SEBI-SEBI/HO/AFD/PoD1/CIR/2024/027"
+    ],
+    "expected_chunk_ids": [
+      "SEBI-SEBI/HO/AFD/PoD1/CIR/2024/027-0"
+    ]
+  },
+  {
+    "id": "q_041",
+    "question": "Which entity regulates mutual funds and what is their maximum expense ratio?",
+    "category": "Multi-hop",
+    "regulator": "SEBI",
+    "temporal_type": "CURRENT",
+    "temporal_start": "",
+    "temporal_end": "",
+    "difficulty": "Medium",
+    "answerable": true,
+    "expected_document_ids": [
+      "SEBI-SEBI/HO/IMD/PoD1/P/CIR/2025/21"
+    ],
+    "expected_chunk_ids": [
+      "SEBI-SEBI/HO/IMD/PoD1/P/CIR/2025/21-0"
+    ]
+  },
+  {
+    "id": "q_042",
+    "question": "If an NBFC wants to open a branch, what capital requirement must it meet first according to the latest circular?",
+    "category": "Multi-hop",
+    "regulator": "RBI",
+    "temporal_type": "CURRENT",
+    "temporal_start": "",
+    "temporal_end": "",
+    "difficulty": "Medium",
+    "answerable": true,
+    "expected_document_ids": [
+      "RBI-RBI_0405.txt"
+    ],
+    "expected_chunk_ids": [
+      "RBI-RBI_0405.txt-6"
+    ]
+  },
+  {
+    "id": "q_043",
+    "question": "What is the minimum net worth for a portfolio manager and what forms of net worth are eligible?",
+    "category": "Multi-hop",
+    "regulator": "SEBI",
+    "temporal_type": "CURRENT",
+    "temporal_start": "",
+    "temporal_end": "",
+    "difficulty": "Medium",
+    "answerable": true,
+    "expected_document_ids": [
+      "RBI-RBI_0167.txt"
+    ],
+    "expected_chunk_ids": [
+      "RBI-RBI_0167.txt-21"
+    ]
+  },
+  {
+    "id": "q_044",
+    "question": "Which types of banks can issue credit cards and what is the minimum paid-up capital needed?",
+    "category": "Multi-hop",
+    "regulator": "RBI",
+    "temporal_type": "CURRENT",
+    "temporal_start": "",
+    "temporal_end": "",
+    "difficulty": "Medium",
+    "answerable": true,
+    "expected_document_ids": [
+      "RBI-RBI_0401.txt"
+    ],
+    "expected_chunk_ids": [
+      "RBI-RBI_0401.txt-10"
+    ]
+  },
+  {
+    "id": "q_045",
+    "question": "How do SEBI and RBI differ on foreign investment limits?",
+    "category": "Cross-regulator",
+    "regulator": "BOTH",
+    "temporal_type": "CURRENT",
+    "temporal_start": "",
+    "temporal_end": "",
+    "difficulty": "Medium",
+    "answerable": true,
+    "expected_document_ids": [
+      "SEBI-SEBI/HO/AFD/AFD-POD-3/P/CIR/2024/152"
+    ],
+    "expected_chunk_ids": [
+      "SEBI-SEBI/HO/AFD/AFD-POD-3/P/CIR/2024/152-0"
+    ]
+  },
+  {
+    "id": "q_046",
+    "question": "What are the joint cybersecurity reporting requirements for banks acting as brokers?",
+    "category": "Cross-regulator",
+    "regulator": "BOTH",
+    "temporal_type": "CURRENT",
+    "temporal_start": "",
+    "temporal_end": "",
+    "difficulty": "Medium",
+    "answerable": true,
+    "expected_document_ids": [
+      "RBI-RBI_0409.txt"
+    ],
+    "expected_chunk_ids": [
+      "RBI-RBI_0409.txt-47"
+    ]
+  },
+  {
+    "id": "q_047",
+    "question": "Is investing in cryptocurrency legal?",
+    "category": "Out-of-domain",
+    "regulator": "UNKNOWN",
+    "temporal_type": "CURRENT",
+    "temporal_start": "",
+    "temporal_end": "",
+    "difficulty": "Medium",
+    "answerable": false,
+    "expected_document_ids": [],
+    "expected_chunk_ids": []
+  },
+  {
+    "id": "q_048",
+    "question": "What is the legal standing of smart contracts?",
+    "category": "Out-of-domain",
+    "regulator": "UNKNOWN",
+    "temporal_type": "CURRENT",
+    "temporal_start": "",
+    "temporal_end": "",
+    "difficulty": "Medium",
+    "answerable": false,
+    "expected_document_ids": [],
+    "expected_chunk_ids": []
+  },
+  {
+    "id": "q_049",
+    "question": "What are the FAA rules on drone flights near airports?",
+    "category": "Out-of-domain",
+    "regulator": "UNKNOWN",
+    "temporal_type": "CURRENT",
+    "temporal_start": "",
+    "temporal_end": "",
+    "difficulty": "Medium",
+    "answerable": false,
+    "expected_document_ids": [],
+    "expected_chunk_ids": []
+  }
+]

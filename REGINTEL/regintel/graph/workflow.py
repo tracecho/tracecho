@@ -15,8 +15,15 @@ if _PKG_ROOT not in sys.path:
 from langgraph.graph import StateGraph, START, END
 
 from graph.state import AgentState
-from graph.nodes import query_analysis_node, retrieval_node, reasoning_node
+from graph.nodes import query_analysis_node, retrieval_node, reasoning_node, evidence_sufficiency_node
 from graph.guardrails import guardrails_node
+from graph.verification_agent import verification_node
+
+def route_evidence_sufficiency(state: dict) -> str:
+    status = state.get("evidence_sufficiency_output", {}).get("status", "SUPPORTED")
+    if status == "RETRY":
+        return "retrieval"
+    return "reasoning"
 
 
 def build_workflow():
@@ -26,12 +33,15 @@ def build_workflow():
 
     g.add_node("query_analysis", query_analysis_node)
     g.add_node("retrieval", retrieval_node)
+    g.add_node("evidence_sufficiency", evidence_sufficiency_node)
     g.add_node("reasoning", reasoning_node)
+    g.add_node("verification", verification_node)
     g.add_node("guardrails", guardrails_node)
 
     g.add_edge(START, "query_analysis")
     g.add_edge("query_analysis", "retrieval")
-    g.add_edge("retrieval", "reasoning")
+    g.add_edge("retrieval", "evidence_sufficiency")
+    g.add_conditional_edges("evidence_sufficiency", route_evidence_sufficiency, {"retrieval": "retrieval", "reasoning": "reasoning"})
     g.add_edge("reasoning", "guardrails")
     g.add_edge("guardrails", END)
 
@@ -58,9 +68,11 @@ if __name__ == "__main__":
     import json as _json
 
     questions = [
-        "What are the KYC requirements applicable to NBFCs?",
-        "What are the responsibilities of investment advisers under SEBI regulations?",
-        "What are the requirements for reporting cyber incidents to RBI?",
+        "What are the KYC requirements for NBFCs?",
+        "What is customer due diligence under RBI KYC rules?",
+        "What is V-CIP?",
+        "What are the four key elements of a bank's KYC policy?",
+        "What is the capital of France?",
     ]
 
     for q in questions:
@@ -69,9 +81,27 @@ if __name__ == "__main__":
         print("=" * 80)
 
         result = run(q)
+        
+        print("\n--- QUERY ANALYSIS ---")
+        print(_json.dumps(result.get("query_analysis", {}), indent=2))
+        
+        print("\n--- RETRIEVAL SUMMARY ---")
+        chunks = result.get("chunks", [])
+        print(f"Retrieved {len(chunks)} chunks")
+        
+        print("\n--- EVIDENCE SUFFICIENCY ---")
+        print(_json.dumps(result.get("evidence_sufficiency_output", {}), indent=2))
+        
+        print("\n--- REASONING OUTPUT ---")
+        ro = result.get("reasoning_output", {})
+        # Omit chunks/citations for brevity if huge, or just print keys
+        print(_json.dumps({k: v for k, v in ro.items() if k != "citations"}, indent=2))
+        
+        print("\n--- VERIFICATION OUTPUT ---")
+        print(_json.dumps(result.get("verification_output", {}), indent=2))
 
         go = result.get("guardrails_output") or {}
-        print("\n--- Guardrails ---")
+        print("\n--- GUARDRAILS OUTPUT ---")
         print(_json.dumps({
             "passed": go.get("passed"),
             "blocked": go.get("blocked"),
@@ -81,7 +111,7 @@ if __name__ == "__main__":
         }, indent=2))
 
         fo = result.get("final_output") or result.get("reasoning_output") or {}
-        print("\n--- Final Answer ---")
+        print("\n--- FINAL OUTPUT ---")
         print(fo.get("answer", ""))
 
         print("\n--- Citations ---")

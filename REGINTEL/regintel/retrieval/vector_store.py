@@ -3,8 +3,16 @@ import faiss
 import json
 import numpy as np
 
+_DEFAULT_DATA_DIR = os.path.join(os.path.dirname(__file__), "..", "data", "processed")
+
 class RegintelVectorStore:
-    def __init__(self, index_path="d:/REGINTEL/regintel/data/processed/faiss_index.bin", meta_path="d:/REGINTEL/regintel/data/processed/faiss_meta.json"):
+    def __init__(self,
+                 index_path: str = "",
+                 meta_path: str = ""):
+        if not index_path:
+            index_path = os.path.join(_DEFAULT_DATA_DIR, "faiss_index.bin")
+        if not meta_path:
+            meta_path = os.path.join(_DEFAULT_DATA_DIR, "faiss_meta.json")
         self.index_path = index_path
         self.meta_path = meta_path
         self.index = None
@@ -36,7 +44,8 @@ class RegintelVectorStore:
         results = []
         for i, idx in enumerate(I[0]):
             if idx != -1:
-                # Convert L2 distance to slightly more interpretable score (inverse/negative)
-                score = 1.0 / (1.0 + float(D[0][i]))
+                # all-MiniLM-L6-v2 vectors are L2-normalized.
+                # L2^2 = 2 - 2 * cosine_sim => cosine_sim = 1 - L2^2 / 2
+                score = 1.0 - (float(D[0][i]) / 2.0)
                 results.append((self.chunk_ids[idx], score))
         return results

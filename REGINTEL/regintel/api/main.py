@@ -45,8 +45,19 @@ class RetrievedChunk(BaseModel):
     validity_status: str = ""
     source_url: str = ""
     text: str = ""
+    dense_score: float | None = None
+    bm25_score: float | None = None
     hybrid_score: float | None = None
+    raw_dense_score: float | None = None
+    raw_bm25_score: float | None = None
+    metadata_adj: float | None = None
+    reranker_score: float | None = None
+    norm_reranker_score: float | None = None
 
+
+class SystemStatusType(BaseModel):
+    status: str = "SUCCESS"
+    reason: str = ""
 
 class GuardrailsSummary(BaseModel):
     passed: bool = False
@@ -70,6 +81,9 @@ class QueryResponse(BaseModel):
     verification_status: str
     guardrails: GuardrailsSummary | None = None
     regulator: str = "UNKNOWN"
+    system_status: SystemStatusType | None = None
+    retrieval_status: str = "SUCCESS"
+    evidence_status: str = "AVAILABLE"
     error: str | None = None
 
 
@@ -119,7 +133,7 @@ def _enrich_citation(citation: dict, chunk_by_id: dict[str, dict]) -> Citation:
 def _verification_status(result: dict, final_output: dict) -> str:
     guardrails = result.get("guardrails_output") or {}
     answer = str(final_output.get("answer") or "")
-    if answer.startswith("Reasoning step failed:"):
+    if answer.startswith("Reasoning step failed:") or answer.startswith("LLM_UNAVAILABLE"):
         return "error"
     if guardrails.get("blocked"):
         return "blocked"
@@ -162,7 +176,14 @@ def _build_query_response(result: dict) -> QueryResponse:
             validity_status=_clean_meta_value(c.get("validity_status")),
             source_url=_clean_meta_value(c.get("source_url")),
             text=str(c.get("text", "")),
+            dense_score=c.get("dense_score"),
+            bm25_score=c.get("bm25_score"),
             hybrid_score=c.get("hybrid_score"),
+            raw_dense_score=c.get("raw_dense_score"),
+            raw_bm25_score=c.get("raw_bm25_score"),
+            metadata_adj=c.get("metadata_adj"),
+            reranker_score=c.get("reranker_score"),
+            norm_reranker_score=c.get("norm_reranker_score"),
         )
         for c in chunks
     ]
@@ -174,6 +195,18 @@ def _build_query_response(result: dict) -> QueryResponse:
         failures=list(guardrails_raw.get("failures") or []),
         checks=dict(guardrails_raw.get("checks") or {}),
     )
+
+    sys_stat = SystemStatusType()
+    if result.get("error") == "LLM_UNAVAILABLE":
+        sys_stat.status = "LLM_UNAVAILABLE"
+        sys_stat.reason = "Reasoning model quota exhausted"
+    elif result.get("error"):
+        sys_stat.status = "ERROR"
+        sys_stat.reason = str(result.get("error"))
+
+    evidence_stat = "AVAILABLE" if chunks else "UNAVAILABLE"
+    if not chunks and bool(final_output.get("evidence_insufficient")):
+        evidence_stat = "INSUFFICIENT"
 
     return QueryResponse(
         query_analysis=query_analysis,
@@ -189,6 +222,9 @@ def _build_query_response(result: dict) -> QueryResponse:
         verification_status=_verification_status(result, final_output),
         guardrails=guardrails,
         regulator=query_analysis.regulator,
+        system_status=sys_stat,
+        retrieval_status="SUCCESS" if chunks else "FAILED",
+        evidence_status=evidence_stat,
         error=result.get("error"),
     )
 
@@ -210,6 +246,36 @@ async def ask_assistant(request: QueryRequest):
     response = _build_query_response(result)
     if not response.answer and response.error:
         raise HTTPException(status_code=503, detail=response.error)
+
+    import logging
+    import json
+    
+    logger = logging.getLogger("regintel.retrieval")
+    if not logger.handlers:
+        handler = logging.StreamHandler(sys.stdout)
+        handler.setFormatter(logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s"))
+        logger.addHandler(handler)
+    logger.setLevel(logging.INFO)
+
+    log_data = {
+        "query": query,
+        "detected_regulator": response.query_analysis.regulator if response.query_analysis else "UNKNOWN",
+        "intent": response.query_analysis.intent if response.query_analysis else "",
+        "retrieval_queries": response.query_analysis.optimized_search_query if response.query_analysis else query,
+        "number_of_candidates": len(response.retrieved_chunks),
+        "raw_dense_scores": [c.raw_dense_score for c in response.retrieved_chunks],
+        "norm_dense_scores": [c.dense_score for c in response.retrieved_chunks],
+        "raw_bm25_scores": [c.raw_bm25_score for c in response.retrieved_chunks],
+        "norm_bm25_scores": [c.bm25_score for c in response.retrieved_chunks],
+        "metadata_scores": [c.metadata_adj for c in response.retrieved_chunks],
+        "reranker_scores": [c.reranker_score for c in response.retrieved_chunks],
+        "final_hybrid": [c.hybrid_score for c in response.retrieved_chunks],
+        "selected_chunks": [c.chunk_id for c in response.retrieved_chunks],
+        "evidence_sufficiency_result": result.get("evidence_sufficiency_output", {}).get("status", "SUPPORTED"),
+        "verification_result": response.verification_status,
+        "final_status": "SUCCESS" if response.answer else "FAILED"
+    }
+    logger.info(f"Retrieval Debug Info: {json.dumps(log_data)}")
 
     return response
 

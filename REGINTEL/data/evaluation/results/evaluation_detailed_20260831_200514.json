@@ -1,0 +1,666 @@
+{
+  "vector": [
+    {
+      "question_id": "q_000",
+      "question": "What are the KYC requirements applicable to NBFCs?",
+      "answerable": true,
+      "expected_chunk_ids": [
+        "RBI_0090-0"
+      ],
+      "retrieved_chunk_ids": [
+        "RBI-RBI_0402.txt-30",
+        "RBI-RBI_0385.txt-5",
+        "RBI-RBI_0092.txt-48",
+        "RBI-RBI_0406.txt-2",
+        "RBI-RBI_0390.txt-2",
+        "RBI-RBI_0394.txt-3",
+        "RBI-RBI_0417.txt-9",
+        "RBI-RBI_0406.txt-24",
+        "RBI-RBI_0417.txt-15",
+        "RBI-RBI_0406.txt-8",
+        "RBI-RBI_0393.txt-3",
+        "RBI-RBI_0388.txt-46",
+        "RBI-RBI_0393.txt-21",
+        "RBI-RBI_0183.txt-11",
+        "RBI-RBI_0416.txt-7"
+      ],
+      "hit_at_5": false,
+      "first_relevant_rank": null,
+      "reciprocal_rank": 0.0
+    },
+    {
+      "question_id": "q_001",
+      "question": "What are the responsibilities of investment advisers under SEBI regulations?",
+      "answerable": true,
+      "expected_chunk_ids": [
+        "SEBI-HO-MIRSD-MIRSD-PoD-P-CIR-2025-116-0"
+      ],
+      "retrieved_chunk_ids": [
+        "SEBI-SEBI/HO/MIRSD/MIRSD-PoD-2/P/CIR/2023/168-0",
+        "SEBI-SEBI/HO/MIRSD/MIRSD-PoD/P/CIR/2025/19-0",
+        "SEBI-SEBI/HO/MIRSD/MIRSD-PoD/P/CIR/2025/116-0",
+        "SEBI-SEBI/HO/IMD/IMD-PoD-1/P/CIR/2024/35-0",
+        "SEBI-DOF1/P/CIR/2021/694-0",
+        "SEBI-SEBI/HO/MIRSD/MIRSD-PoD-1/P/CIR/2025/003-0",
+        "SEBI-SEBI/HO/MIRSD/DoP/P/CIR/2022/46-0",
+        "SEBI-SEBI/HO/MIRSD/MIRSD-PoD1/P/CIR/2024/147-0",
+        "SEBI-SEBI/HO/AFD/P/CIR/2023/043-0",
+        "SEBI-SEBI/HO/MIRSD/SEC-5/P/CIR/2022/100-0",
+        "SEBI-SEBI/HO/AFD/AFD-POD-1/P/CIR/2024/135-0",
+        "SEBI-SEBI/HO/MIRSD/DoP/P/CIR/2022/89-0",
+        "SEBI-SEBI/HO/AFD/AFD-PoD-1/P/CIR/2025/066-0",
+        "SEBI-SEBI/HO/AFD/RAC/CIR/2022/088-0",
+        "SEBI-SEBI/HO/IMD/IMD-PoD-1/P/CIR/2024/32-0"
+      ],
+      "hit_at_5": false,
+      "first_relevant_rank": null,
+      "reciprocal_rank": 0.0
+    },
+    {
+      "question_id": "q_002",
+      "question": "What are the regulations governing coffee shops on Mars?",
+      "answerable": false,
+      "expected_chunk_ids": [],
+      "retrieved_chunk_ids": [
+        "RBI-RBI_0130.txt-21",
+        "RBI-RBI_0239.txt-20",
+        "RBI-RBI_0103.txt-20",
+        "RBI-RBI_0435.txt-6",
+        "RBI-RBI_0156.txt-7",
+        "RBI-RBI_0010.txt-64",
+        "SEBI-SEBI/HO/MRD/MRD-PoD-1/P/CIR/2024/64-0",
+        "RBI-RBI_0005.txt-8",
+        "SEBI-SEBI/HO/MRD/MRD-PoD-1/P/CIR/2025/087-0",
+        "RBI-RBI_0090.txt-42",
+        "RBI-RBI_0345.txt-2",
+        "RBI-RBI_0253.txt-48",
+        "RBI-RBI_0256.txt-5",
+        "RBI-RBI_0003.txt-9",
+        "RBI-RBI_0407.txt-26"
+      ],
+      "hit_at_5": null,
+      "first_relevant_rank": null,
+      "reciprocal_rank": null
+    },
+    {
+      "question_id": "q_003",
+      "question": "What were the KYC requirements for NBFCs in 2022?",
+      "answerable": true,
+      "expected_chunk_ids": [
+        "RBI_0091-0"
+      ],
+      "retrieved_chunk_ids": [
+        "RBI-RBI_0402.txt-30",
+        "RBI-RBI_0385.txt-5",
+        "RBI-RBI_0417.txt-8",
+        "RBI-RBI_0406.txt-2",
+        "RBI-RBI_0388.txt-46",
+        "RBI-RBI_0417.txt-9",
+        "RBI-RBI_0390.txt-2",
+        "RBI-RBI_0417.txt-10",
+        "RBI-RBI_0382.txt-31",
+        "RBI-RBI_0393.txt-3",
+        "RBI-RBI_0417.txt-7",
+        "RBI-RBI_0393.txt-21",
+        "RBI-RBI_0406.txt-24",
+        "RBI-RBI_0417.txt-39",
+        "RBI-RBI_0416.txt-4"
+      ],
+      "hit_at_5": false,
+      "first_relevant_rank": null,
+      "reciprocal_rank": 0.0
+    },
+    {
+      "question_id": "q_004",
+      "question": "What is the current Bitcoin price?",
+      "answerable": false,
+      "expected_chunk_ids": [],
+      "retrieved_chunk_ids": [
+        "RBI-RBI_0114.txt-41",
+        "SEBI-SEBI/HO/CFD/CFD-PoD-2/P/CIR/2024/51-0",
+        "SEBI-HO/47/11/11(3)2025-MRD-POD2/I/2765/2026-0",
+        "RBI-RBI_0106.txt-113",
+        "RBI-RBI_0107.txt-7",
+        "RBI-RBI_0106.txt-109",
+        "RBI-RBI_0107.txt-3",
+        "RBI-RBI_0241.txt-123",
+        "RBI-RBI_0101.txt-50",
+        "RBI-RBI_0437.txt-16",
+        "RBI-RBI_0242.txt-5",
+        "RBI-RBI_0021.txt-68",
+        "RBI-RBI_0241.txt-104",
+        "RBI-RBI_0242.txt-18",
+        "RBI-RBI_0243.txt-1"
+      ],
+      "hit_at_5": null,
+      "first_relevant_rank": null,
+      "reciprocal_rank": null
+    }
+  ],
+  "bm25": [
+    {
+      "question_id": "q_000",
+      "question": "What are the KYC requirements applicable to NBFCs?",
+      "answerable": true,
+      "expected_chunk_ids": [
+        "RBI_0090-0"
+      ],
+      "retrieved_chunk_ids": [
+        "SEBI-SEBI/HO/MIRSD/MIRSD-PoD/P/CIR/2025/105-0",
+        "SEBI-SEBI/HO/MIRSD/DOP/CIR/P/2019/113-0",
+        "RBI-RBI_0129.txt-378",
+        "RBI-RBI_0152.txt-28",
+        "SEBI-SEBI/HO/MIRSD/DOS3/CIR/P/2018/104-0",
+        "SEBI-SEBI/HO/AFD/AFD-PoD-3/P/CIR/2025/127-0",
+        "RBI-RBI_0012.txt-251",
+        "RBI-RBI_0428.txt-255",
+        "RBI-RBI_0322.txt-44",
+        "RBI-RBI_0241.txt-25",
+        "RBI-RBI_0106.txt-27",
+        "RBI-RBI_0092.txt-42",
+        "RBI-RBI_0359.txt-44",
+        "SEBI-SEBI/HO/CFD/PoD-1/P/CIR/2022/120-0",
+        "RBI-RBI_0059.txt-9"
+      ],
+      "hit_at_5": false,
+      "first_relevant_rank": null,
+      "reciprocal_rank": 0.0
+    },
+    {
+      "question_id": "q_001",
+      "question": "What are the responsibilities of investment advisers under SEBI regulations?",
+      "answerable": true,
+      "expected_chunk_ids": [
+        "SEBI-HO-MIRSD-MIRSD-PoD-P-CIR-2025-116-0"
+      ],
+      "retrieved_chunk_ids": [
+        "SEBI-SEBI/HO/MIRSD/MIRSD-PoD/P/CIR/2025/105-0",
+        "SEBI-SEBI/HO/MIRSD/MIRSD-PoD-1/P/CIR/2025/11-0",
+        "SEBI-HO/38/12/11(1)2026-MIRSD-POD/I/4360/2026-0",
+        "SEBI-SEBI/HO/MIRSD/MIRSD-SEC-3/P/CIR/2024/34-0",
+        "SEBI-SEBI/HO/MIRSD/MIRSD-PoD1/P/CIR/2024/147-0",
+        "SEBI-HO/38/12/11(1)2025-MIRSD-POD/I/71/2025-0",
+        "SEBI-SEBI/HO/MIRSD/MIRSD-PoD-2/P/CIR/2023/52-0",
+        "SEBI-SEBI/HO/MIRSD/MIRSD-PoD-1/P/CIR/2024/50-0",
+        "SEBI-HO/38/12/11(2)2026-MIRSD-POD/I/4300/2026-0",
+        "SEBI-SEBI/HO/MIRSD/MIRSD-PoD/P/CIR/2025/48-0",
+        "SEBI-SEBI/HO/MIRSD/MIRSD-PoD/P/CIR/2025/94-0",
+        "SEBI-HO/38/12/12(1)2026-MIRSD-SEC-FATF/I/7933/2026-0",
+        "SEBI-SEBI/HO/MIRSD/MIRSD-PoD/P/CIR/2025/80-0",
+        "RBI-RBI_0091.txt-32",
+        "SEBI-SEBI/HO/MIRSD-PoD-2/P/CIR/2023/89-0"
+      ],
+      "hit_at_5": false,
+      "first_relevant_rank": null,
+      "reciprocal_rank": 0.0
+    },
+    {
+      "question_id": "q_002",
+      "question": "What are the regulations governing coffee shops on Mars?",
+      "answerable": false,
+      "expected_chunk_ids": [],
+      "retrieved_chunk_ids": [
+        "SEBI-SEBI/HO/CFD/PoD-1/P/CIR/2022/120-0",
+        "SEBI-HO/49/14/14(6)2025-CFD-PoD1/I/2771/2026-0",
+        "SEBI-SEBI/HO/MIRSD/MIRSD-PoD/P/CIR/2025/105-0",
+        "SEBI-CIR/MRD/DSA/10/2010-0",
+        "SEBI-CIR/MRD/DSA/SE/43/2010-0",
+        "SEBI-SEBI/HO/CFD/CFD-PoD-1/P/CIR/2025/129-0",
+        "SEBI-SEBI/HO/MIRSD/MIRSD-PoD-1/P/CIR/2025/11-0",
+        "RBI-RBI_0076.txt-92",
+        "RBI-RBI_0214.txt-93",
+        "SEBI-SEBI/HO/MRD/POD-3/P/CIR/2024/162-0",
+        "RBI-RBI_0214.txt-15",
+        "RBI-RBI_0076.txt-15",
+        "RBI-RBI_0114.txt-13",
+        "SEBI-SEBI/HO/MRD/PoD1/CIR/P/2025/24-0",
+        "SEBI-SEBI/HO/MRD/MRD-PoD-3/2024/088-0"
+      ],
+      "hit_at_5": null,
+      "first_relevant_rank": null,
+      "reciprocal_rank": null
+    },
+    {
+      "question_id": "q_003",
+      "question": "What were the KYC requirements for NBFCs in 2022?",
+      "answerable": true,
+      "expected_chunk_ids": [
+        "RBI_0091-0"
+      ],
+      "retrieved_chunk_ids": [
+        "RBI-RBI_0129.txt-378",
+        "RBI-RBI_0152.txt-28",
+        "RBI-RBI_0428.txt-39",
+        "RBI-RBI_0012.txt-38",
+        "RBI-RBI_0228.txt-44",
+        "RBI-RBI_0297.txt-43",
+        "RBI-RBI_0365.txt-43",
+        "RBI-RBI_0322.txt-43",
+        "RBI-RBI_0271.txt-44",
+        "RBI-RBI_0359.txt-43",
+        "RBI-RBI_0381.txt-9",
+        "RBI-RBI_0012.txt-297",
+        "RBI-RBI_0201.txt-7",
+        "SEBI-SEBI/HO/CFD/PoD-1/P/CIR/2022/120-0",
+        "RBI-RBI_0228.txt-64"
+      ],
+      "hit_at_5": false,
+      "first_relevant_rank": null,
+      "reciprocal_rank": 0.0
+    },
+    {
+      "question_id": "q_004",
+      "question": "What is the current Bitcoin price?",
+      "answerable": false,
+      "expected_chunk_ids": [],
+      "retrieved_chunk_ids": [
+        "RBI-RBI_0114.txt-30",
+        "RBI-RBI_0012.txt-251",
+        "RBI-RBI_0428.txt-255",
+        "RBI-RBI_0129.txt-296",
+        "RBI-RBI_0004.txt-27",
+        "RBI-RBI_0012.txt-250",
+        "RBI-RBI_0428.txt-254",
+        "SEBI-SEBI/HO/CFD/PoD-1/P/CIR/2022/120-0",
+        "RBI-RBI_0012.txt-289",
+        "RBI-RBI_0129.txt-289",
+        "RBI-RBI_0129.txt-297",
+        "RBI-RBI_0428.txt-293",
+        "RBI-RBI_0012.txt-149",
+        "SEBI-HO/49/14/14(6)2025-CFD-PoD1/I/2771/2026-0",
+        "RBI-RBI_0114.txt-31"
+      ],
+      "hit_at_5": null,
+      "first_relevant_rank": null,
+      "reciprocal_rank": null
+    }
+  ],
+  "hybrid": [
+    {
+      "question_id": "q_000",
+      "question": "What are the KYC requirements applicable to NBFCs?",
+      "answerable": true,
+      "expected_chunk_ids": [
+        "RBI_0090-0"
+      ],
+      "retrieved_chunk_ids": [
+        "SEBI-SEBI/HO/MIRSD/MIRSD-PoD/P/CIR/2025/105-0",
+        "SEBI-SEBI/HO/MIRSD/DOS3/CIR/P/2018/104-0",
+        "SEBI-SEBI/HO/AFD/AFD-PoD-3/P/CIR/2025/127-0",
+        "SEBI-HO/49/14/14(6)2025-CFD-PoD1/I/2771/2026-0",
+        "SEBI-SEBI/HO/MIRSD/PODFATF/P/CIR/2025/62-0",
+        "SEBI-HO/38/13/11(14)2026-MIRSD-POD/I/17111/2026-0",
+        "RBI-RBI_0402.txt-30",
+        "SEBI-ISD/AML/CIR-1/2010-0",
+        "SEBI-HO/19/34/14(5)2025-AFD-POD2/I/2703/2026-0",
+        "RBI-RBI_0385.txt-5",
+        "RBI-RBI_0152.txt-28",
+        "RBI-RBI_0129.txt-378",
+        "RBI-RBI_0092.txt-48",
+        "RBI-RBI_0322.txt-44",
+        "RBI-RBI_0241.txt-25"
+      ],
+      "hit_at_5": false,
+      "first_relevant_rank": null,
+      "reciprocal_rank": 0.0
+    },
+    {
+      "question_id": "q_001",
+      "question": "What are the responsibilities of investment advisers under SEBI regulations?",
+      "answerable": true,
+      "expected_chunk_ids": [
+        "SEBI-HO-MIRSD-MIRSD-PoD-P-CIR-2025-116-0"
+      ],
+      "retrieved_chunk_ids": [
+        "SEBI-SEBI/HO/MIRSD/MIRSD-PoD/P/CIR/2025/105-0",
+        "SEBI-SEBI/HO/MIRSD/MIRSD-PoD/P/CIR/2025/116-0",
+        "SEBI-DOF1/P/CIR/2021/694-0",
+        "SEBI-SEBI/HO/MIRSD/MIRSD-PoD-1/P/CIR/2025/003-0",
+        "SEBI-HO/38/12/12(1)2026-MIRSD-SEC-FATF/I/7933/2026-0",
+        "SEBI-SEBI/HO/AFD/AFD-POD-1/P/CIR/2024/135-0",
+        "SEBI-SEBI/HO/IMD/IMD-PoD-1/P/CIR/2024/32-0",
+        "SEBI-SEBI/HO/AFD/AFD-POD-2/P/CIR/2024/89-0",
+        "SEBI-HO/19/34/14(5)2025-AFD-POD2/I/2703/2026-0",
+        "SEBI-SEBI/HO/MIRSD/MIRSD-PoD-1/P/CIR/2024/143-0",
+        "SEBI-SEBI/HO/MIRSD/MIRSD-PoD-2/P/CIR/2022/163-0",
+        "SEBI-SEBI/HO/MIRSD/MIRSD-PoD-2/P/CIR/2023/168-0",
+        "SEBI-SEBI/HO/MRD/MRD-PoD-2/P/CIR/2024/83-0",
+        "SEBI-SEBI/HO/AFD/AFD-PoD-3/P/CIR/2025/127-0",
+        "SEBI-SEBI/HO/MIRSD/SEC-5/P/CIR/2022/100-0"
+      ],
+      "hit_at_5": false,
+      "first_relevant_rank": null,
+      "reciprocal_rank": 0.0
+    },
+    {
+      "question_id": "q_002",
+      "question": "What are the regulations governing coffee shops on Mars?",
+      "answerable": false,
+      "expected_chunk_ids": [],
+      "retrieved_chunk_ids": [
+        "RBI-RBI_0076.txt-15",
+        "RBI-RBI_0214.txt-15",
+        "SEBI-HO/49/14/14(6)2025-CFD-PoD1/I/2771/2026-0",
+        "RBI-RBI_0076.txt-16",
+        "RBI-RBI_0214.txt-16",
+        "SEBI-SEBI/HO/MIRSD/MIRSD-PoD/P/CIR/2025/105-0",
+        "SEBI-CIR/MRD/DSA/10/2010-0",
+        "SEBI-CIR/MRD/DSA/SE/43/2010-0",
+        "SEBI-SEBI/HO/MRD/POD-3/P/CIR/2024/162-0",
+        "SEBI-SEBI/HO/MRD/PoD1/CIR/P/2025/24-0",
+        "SEBI-SEBI/HO/MRD/MRD-PoD-3/P/CIR/2025/75-0",
+        "SEBI-SEBI/HO/MIRSD/MIRSD-PoD-1/P/CIR/2025/11-0",
+        "RBI-RBI_0076.txt-92",
+        "RBI-RBI_0214.txt-93",
+        "SEBI-SEBI/HO/MRD/MRD-RAC-2/P/CIR/2022/141-0"
+      ],
+      "hit_at_5": null,
+      "first_relevant_rank": null,
+      "reciprocal_rank": null
+    },
+    {
+      "question_id": "q_003",
+      "question": "What were the KYC requirements for NBFCs in 2022?",
+      "answerable": true,
+      "expected_chunk_ids": [
+        "RBI_0091-0"
+      ],
+      "retrieved_chunk_ids": [
+        "RBI-RBI_0381.txt-9",
+        "RBI-RBI_0183.txt-11",
+        "RBI-RBI_0152.txt-28",
+        "SEBI-SEBI/HO/CFD/PoD-1/P/CIR/2022/120-0",
+        "SEBI-SEBI/HO/DDHS/CIR/2021/0000000638-0",
+        "SEBI-SEBI/HO/MIRSD/DOP/CIR/P/2019/113-0",
+        "RBI-RBI_0091.txt-21",
+        "RBI-RBI_0091.txt-32",
+        "RBI-RBI_0129.txt-378",
+        "RBI-RBI_0228.txt-44",
+        "RBI-RBI_0297.txt-43",
+        "RBI-RBI_0365.txt-43",
+        "RBI-RBI_0322.txt-43",
+        "RBI-RBI_0271.txt-44",
+        "RBI-RBI_0359.txt-43"
+      ],
+      "hit_at_5": false,
+      "first_relevant_rank": null,
+      "reciprocal_rank": 0.0
+    },
+    {
+      "question_id": "q_004",
+      "question": "What is the current Bitcoin price?",
+      "answerable": false,
+      "expected_chunk_ids": [],
+      "retrieved_chunk_ids": [
+        "RBI-RBI_0114.txt-30",
+        "SEBI-HO/49/14/14(6)2025-CFD-PoD1/I/2771/2026-0",
+        "RBI-RBI_0129.txt-296",
+        "SEBI-SEBI/HO/MIRSD/MIRSD-PoD/P/CIR/2025/105-0",
+        "RBI-RBI_0129.txt-289",
+        "RBI-RBI_0129.txt-297",
+        "RBI-RBI_0114.txt-31",
+        "SEBI-HO/47/11/11(3)2025-MRD-POD2/I/2765/2026-0",
+        "RBI-RBI_0106.txt-27",
+        "RBI-RBI_0075.txt-21",
+        "RBI-RBI_0166.txt-22",
+        "RBI-RBI_0114.txt-36",
+        "RBI-RBI_0152.txt-19",
+        "RBI-RBI_0091.txt-21",
+        "RBI-RBI_0018.txt-0"
+      ],
+      "hit_at_5": null,
+      "first_relevant_rank": null,
+      "reciprocal_rank": null
+    }
+  ],
+  "hybrid_reranking": [
+    {
+      "question_id": "q_000",
+      "question": "What are the KYC requirements applicable to NBFCs?",
+      "answerable": true,
+      "expected_chunk_ids": [
+        "RBI_0090-0"
+      ],
+      "retrieved_chunk_ids": [
+        "RBI-RBI_0402.txt-30",
+        "RBI-RBI_0385.txt-5",
+        "RBI-RBI_0322.txt-44",
+        "RBI-RBI_0359.txt-44",
+        "RBI-RBI_0092.txt-42",
+        "RBI-RBI_0444.txt-13",
+        "RBI-RBI_0092.txt-48",
+        "SEBI-SEBI/HO/MIRSD/PODFATF/P/CIR/2025/62-0",
+        "SEBI-ISD/AML/CIR-1/2010-0",
+        "SEBI-SEBI/HO/AFD/AFD-PoD-3/P/CIR/2025/127-0",
+        "RBI-RBI_0152.txt-28",
+        "RBI-RBI_0129.txt-378",
+        "SEBI-HO/38/13/11(14)2026-MIRSD-POD/I/17111/2026-0",
+        "SEBI-HO/19/34/14(5)2025-AFD-POD2/I/2703/2026-0",
+        "SEBI-SEBI/HO/MIRSD/MIRSD-PoD/P/CIR/2025/105-0"
+      ],
+      "hit_at_5": false,
+      "first_relevant_rank": null,
+      "reciprocal_rank": 0.0
+    },
+    {
+      "question_id": "q_001",
+      "question": "What are the responsibilities of investment advisers under SEBI regulations?",
+      "answerable": true,
+      "expected_chunk_ids": [
+        "SEBI-HO-MIRSD-MIRSD-PoD-P-CIR-2025-116-0"
+      ],
+      "retrieved_chunk_ids": [
+        "SEBI-DOF1/P/CIR/2021/694-0",
+        "SEBI-SEBI/HO/MIRSD/MIRSD-PoD/P/CIR/2025/116-0",
+        "SEBI-SEBI/HO/MIRSD/MIRSD-PoD-2/P/CIR/2023/168-0",
+        "SEBI-HO/38/12/12(1)2026-MIRSD-SEC-FATF/I/7933/2026-0",
+        "SEBI-SEBI/HO/MIRSD/MIRSD-PoD-1/P/CIR/2025/003-0",
+        "SEBI-SEBI/HO/MIRSD/MIRSD-SEC-3/P/CIR/2024/34-0",
+        "SEBI-SEBI/HO/MIRSD/MIRSD-PoD/P/CIR/2025/105-0",
+        "SEBI-SEBI/HO/MIRSD/MIRSD-PoD-2/P/CIR/2022/163-0",
+        "SEBI-SEBI/HO/MIRSD/SEC-5/P/CIR/2022/100-0",
+        "SEBI-SEBI/HO/AFD/AFD-POD-1/P/CIR/2024/135-0",
+        "SEBI-SEBI/HO/MIRSD/DoP/P/CIR/2022/89-0",
+        "SEBI-SEBI/HO/MIRSD/MIRSD-PoD-1/P/CIR/2024/143-0",
+        "SEBI-SEBI/HO/IMD/IMD-PoD-1/P/CIR/2024/32-0",
+        "SEBI-SEBI/HO/AFD/AFD-POD-2/P/CIR/2024/89-0",
+        "SEBI-SEBI/HO/AFD/AFD-PoD-3/P/CIR/2025/127-0"
+      ],
+      "hit_at_5": false,
+      "first_relevant_rank": null,
+      "reciprocal_rank": 0.0
+    },
+    {
+      "question_id": "q_002",
+      "question": "What are the regulations governing coffee shops on Mars?",
+      "answerable": false,
+      "expected_chunk_ids": [],
+      "retrieved_chunk_ids": [
+        "SEBI-SEBI/HO/MRD/MRD-RAC-2/P/CIR/2022/141-0",
+        "SEBI-SEBI/HO/MIRSD/MIRSD-PoD/P/CIR/2025/105-0",
+        "SEBI-SEBI/HO/MIRSD/MIRSD-PoD-1/P/CIR/2025/11-0",
+        "SEBI-SEBI/HO/MRD/POD-3/P/CIR/2024/162-0",
+        "RBI-RBI_0167.txt-28",
+        "SEBI-HO/49/14/14(6)2025-CFD-PoD1/I/2771/2026-0",
+        "RBI-RBI_0167.txt-23",
+        "RBI-RBI_0076.txt-16",
+        "RBI-RBI_0214.txt-16",
+        "SEBI-SEBI/HO/MRD/MRD-PoD-3/P/CIR/2025/75-0",
+        "RBI-RBI_0076.txt-15",
+        "SEBI-CIR/MRD/DSA/SE/43/2010-0",
+        "RBI-RBI_0214.txt-15",
+        "RBI-RBI_0114.txt-13",
+        "SEBI-CIR/MRD/DSA/10/2010-0"
+      ],
+      "hit_at_5": null,
+      "first_relevant_rank": null,
+      "reciprocal_rank": null
+    },
+    {
+      "question_id": "q_003",
+      "question": "What were the KYC requirements for NBFCs in 2022?",
+      "answerable": true,
+      "expected_chunk_ids": [
+        "RBI_0091-0"
+      ],
+      "retrieved_chunk_ids": [
+        "RBI-RBI_0381.txt-9",
+        "RBI-RBI_0183.txt-11",
+        "SEBI-SEBI/HO/DDHS/CIR/2021/0000000638-0",
+        "RBI-RBI_0228.txt-64",
+        "RBI-RBI_0092.txt-60",
+        "SEBI-SEBI/HO/CFD/PoD-1/P/CIR/2022/120-0",
+        "RBI-RBI_0359.txt-43",
+        "RBI-RBI_0092.txt-42",
+        "RBI-RBI_0297.txt-43",
+        "RBI-RBI_0228.txt-44",
+        "RBI-RBI_0322.txt-43",
+        "RBI-RBI_0365.txt-43",
+        "RBI-RBI_0152.txt-28",
+        "RBI-RBI_0129.txt-103",
+        "RBI-RBI_0271.txt-44"
+      ],
+      "hit_at_5": false,
+      "first_relevant_rank": null,
+      "reciprocal_rank": 0.0
+    },
+    {
+      "question_id": "q_004",
+      "question": "What is the current Bitcoin price?",
+      "answerable": false,
+      "expected_chunk_ids": [],
+      "retrieved_chunk_ids": [
+        "SEBI-HO/47/11/11(3)2025-MRD-POD2/I/2765/2026-0",
+        "RBI-RBI_0114.txt-30",
+        "RBI-RBI_0129.txt-67",
+        "SEBI-HO/49/14/14(6)2025-CFD-PoD1/I/2771/2026-0",
+        "RBI-RBI_0311.txt-7",
+        "RBI-RBI_0347.txt-7",
+        "RBI-RBI_0129.txt-289",
+        "SEBI-SEBI/HO/MIRSD/MIRSD-PoD/P/CIR/2025/105-0",
+        "RBI-RBI_0114.txt-31",
+        "RBI-RBI_0129.txt-297",
+        "RBI-RBI_0075.txt-21",
+        "RBI-RBI_0114.txt-65",
+        "RBI-RBI_0018.txt-0",
+        "RBI-RBI_0166.txt-22",
+        "RBI-RBI_0106.txt-27"
+      ],
+      "hit_at_5": null,
+      "first_relevant_rank": null,
+      "reciprocal_rank": null
+    }
+  ],
+  "agentic": [
+    {
+      "question_id": "q_000",
+      "question": "What are the KYC requirements applicable to NBFCs?",
+      "answerable": true,
+      "expected_chunk_ids": [
+        "RBI_0090-0"
+      ],
+      "retrieved_chunk_ids": [
+        "RBI-RBI_0090.txt-33",
+        "RBI-RBI_0417.txt-39",
+        "RBI-RBI_0388.txt-46",
+        "RBI-RBI_0393.txt-3",
+        "RBI-RBI_0394.txt-3",
+        "RBI-RBI_0009.txt-1",
+        "RBI-RBI_0009.txt-8",
+        "RBI-RBI_0183.txt-11",
+        "RBI-RBI_0385.txt-5",
+        "RBI-RBI_0038.txt-1"
+      ],
+      "hit_at_5": false,
+      "first_relevant_rank": null,
+      "reciprocal_rank": 0.0
+    },
+    {
+      "question_id": "q_001",
+      "question": "What are the responsibilities of investment advisers under SEBI regulations?",
+      "answerable": true,
+      "expected_chunk_ids": [
+        "SEBI-HO-MIRSD-MIRSD-PoD-P-CIR-2025-116-0"
+      ],
+      "retrieved_chunk_ids": [
+        "SEBI-HO/38/12/12(1)2026-MIRSD-SEC-FATF/I/7933/2026-0",
+        "SEBI-SEBI/HO/MIRSD/MIRSD-PoD/P/CIR/2025/116-0",
+        "SEBI-SEBI/HO/MIRSD/MIRSD-PoD-2/P/CIR/2023/168-0",
+        "SEBI-SEBI/HO/MIRSD/MIRSD-PoD1/P/CIR/2024/147-0",
+        "SEBI-SEBI/HO/MIRSD/MIRSD-PoD-2/P/CIR/2024/38-0",
+        "SEBI-SEBI/HO/MIRSD/MIRSD-PoD/P/CIR/2025/105-0",
+        "SEBI-SEBI/HO/MIRSD/MIRSD-PoD-1/P/CIR/2025/003-0",
+        "SEBI-HO/19/(8)2025-AFD-POD1/I/1266/2025-0",
+        "SEBI-DOF1/P/CIR/2021/694-0",
+        "SEBI-SEBI/HO/MIRSD/MIRSD-SEC-3/P/CIR/2024/34-0"
+      ],
+      "hit_at_5": false,
+      "first_relevant_rank": null,
+      "reciprocal_rank": 0.0
+    },
+    {
+      "question_id": "q_002",
+      "question": "What are the regulations governing coffee shops on Mars?",
+      "answerable": false,
+      "expected_chunk_ids": [],
+      "retrieved_chunk_ids": [
+        "SEBI-SEBI/HO/MRD/MRD-RAC-2/P/CIR/2022/141-0",
+        "SEBI-SEBI/HO/MIRSD/MIRSD-PoD/P/CIR/2025/105-0",
+        "SEBI-SEBI/HO/MIRSD/MIRSD-PoD-1/P/CIR/2025/11-0",
+        "SEBI-SEBI/HO/MRD/POD-3/P/CIR/2024/162-0",
+        "RBI-RBI_0167.txt-28",
+        "SEBI-HO/49/14/14(6)2025-CFD-PoD1/I/2771/2026-0",
+        "RBI-RBI_0167.txt-23",
+        "RBI-RBI_0076.txt-16",
+        "RBI-RBI_0214.txt-16",
+        "SEBI-SEBI/HO/MRD/MRD-PoD-3/P/CIR/2025/75-0"
+      ],
+      "hit_at_5": null,
+      "first_relevant_rank": null,
+      "reciprocal_rank": null
+    },
+    {
+      "question_id": "q_003",
+      "question": "What were the KYC requirements for NBFCs in 2022?",
+      "answerable": true,
+      "expected_chunk_ids": [
+        "RBI_0091-0"
+      ],
+      "retrieved_chunk_ids": [
+        "RBI-RBI_0381.txt-9",
+        "RBI-RBI_0183.txt-11",
+        "RBI-RBI_0228.txt-64",
+        "RBI-RBI_0092.txt-60",
+        "RBI-RBI_0359.txt-43",
+        "RBI-RBI_0322.txt-63",
+        "RBI-RBI_0092.txt-42",
+        "RBI-RBI_0092.txt-41",
+        "RBI-RBI_0297.txt-43",
+        "RBI-RBI_0228.txt-44"
+      ],
+      "hit_at_5": false,
+      "first_relevant_rank": null,
+      "reciprocal_rank": 0.0
+    },
+    {
+      "question_id": "q_004",
+      "question": "What is the current Bitcoin price?",
+      "answerable": false,
+      "expected_chunk_ids": [],
+      "retrieved_chunk_ids": [
+        "RBI-RBI_0114.txt-30",
+        "RBI-RBI_0129.txt-67",
+        "SEBI-HO/49/14/14(6)2025-CFD-PoD1/I/2771/2026-0",
+        "RBI-RBI_0311.txt-7",
+        "RBI-RBI_0347.txt-7",
+        "RBI-RBI_0129.txt-289",
+        "SEBI-SEBI/HO/MIRSD/MIRSD-PoD/P/CIR/2025/105-0",
+        "RBI-RBI_0114.txt-31",
+        "RBI-RBI_0129.txt-297"
+      ],
+      "hit_at_5": null,
+      "first_relevant_rank": null,
+      "reciprocal_rank": null
+    }
+  ]
+}

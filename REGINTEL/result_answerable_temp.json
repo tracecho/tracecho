@@ -1,0 +1,1000 @@
+{
+  "run_at": "2026-10-20T23:38:33.875156",
+  "test_type": "OOD refusal smoke test",
+  "total_questions": 45,
+  "refusal_checks_passed": 0,
+  "preliminary_refusal_rate_percent": 0.0,
+  "note": "Keyword-based preliminary check only; inspect answers before treating this as a valid refusal score.",
+  "results": [
+    {
+      "id": "q_000",
+      "question": "What are the KYC requirements applicable to NBFCs?",
+      "http_status": 422,
+      "answer": {
+        "detail": [
+          {
+            "type": "missing",
+            "loc": [
+              "body",
+              "query"
+            ],
+            "msg": "Field required",
+            "input": {
+              "question": "What are the KYC requirements applicable to NBFCs?"
+            }
+          }
+        ]
+      },
+      "refusal_detected": false,
+      "refusal_check_pass": false
+    },
+    {
+      "id": "q_001",
+      "question": "What are the responsibilities of investment advisers under SEBI regulations?",
+      "http_status": 422,
+      "answer": {
+        "detail": [
+          {
+            "type": "missing",
+            "loc": [
+              "body",
+              "query"
+            ],
+            "msg": "Field required",
+            "input": {
+              "question": "What are the responsibilities of investment advisers under SEBI regulations?"
+            }
+          }
+        ]
+      },
+      "refusal_detected": false,
+      "refusal_check_pass": false
+    },
+    {
+      "id": "q_003",
+      "question": "What were the KYC requirements for NBFCs in 2022?",
+      "http_status": 422,
+      "answer": {
+        "detail": [
+          {
+            "type": "missing",
+            "loc": [
+              "body",
+              "query"
+            ],
+            "msg": "Field required",
+            "input": {
+              "question": "What were the KYC requirements for NBFCs in 2022?"
+            }
+          }
+        ]
+      },
+      "refusal_detected": false,
+      "refusal_check_pass": false
+    },
+    {
+      "id": "q_005",
+      "question": "What is the maximum penalty for insider trading?",
+      "http_status": 422,
+      "answer": {
+        "detail": [
+          {
+            "type": "missing",
+            "loc": [
+              "body",
+              "query"
+            ],
+            "msg": "Field required",
+            "input": {
+              "question": "What is the maximum penalty for insider trading?"
+            }
+          }
+        ]
+      },
+      "refusal_detected": false,
+      "refusal_check_pass": false
+    },
+    {
+      "id": "q_006",
+      "question": "What are the capital adequacy requirements for tier 1 urban cooperative banks?",
+      "http_status": 422,
+      "answer": {
+        "detail": [
+          {
+            "type": "missing",
+            "loc": [
+              "body",
+              "query"
+            ],
+            "msg": "Field required",
+            "input": {
+              "question": "What are the capital adequacy requirements for tier 1 urban cooperative banks?"
+            }
+          }
+        ]
+      },
+      "refusal_detected": false,
+      "refusal_check_pass": false
+    },
+    {
+      "id": "q_007",
+      "question": "What are the guidelines on grievance redressal mechanisms for mutual funds?",
+      "http_status": 422,
+      "answer": {
+        "detail": [
+          {
+            "type": "missing",
+            "loc": [
+              "body",
+              "query"
+            ],
+            "msg": "Field required",
+            "input": {
+              "question": "What are the guidelines on grievance redressal mechanisms for mutual funds?"
+            }
+          }
+        ]
+      },
+      "refusal_detected": false,
+      "refusal_check_pass": false
+    },
+    {
+      "id": "q_008",
+      "question": "What are the rules for early withdrawal of fixed deposits?",
+      "http_status": 422,
+      "answer": {
+        "detail": [
+          {
+            "type": "missing",
+            "loc": [
+              "body",
+              "query"
+            ],
+            "msg": "Field required",
+            "input": {
+              "question": "What are the rules for early withdrawal of fixed deposits?"
+            }
+          }
+        ]
+      },
+      "refusal_detected": false,
+      "refusal_check_pass": false
+    },
+    {
+      "id": "q_009",
+      "question": "What are the disclosure requirements for a company launching an IPO?",
+      "http_status": 422,
+      "answer": {
+        "detail": [
+          {
+            "type": "missing",
+            "loc": [
+              "body",
+              "query"
+            ],
+            "msg": "Field required",
+            "input": {
+              "question": "What are the disclosure requirements for a company launching an IPO?"
+            }
+          }
+        ]
+      },
+      "refusal_detected": false,
+      "refusal_check_pass": false
+    },
+    {
+      "id": "q_010",
+      "question": "What is the role of a debenture trustee?",
+      "http_status": 422,
+      "answer": {
+        "detail": [
+          {
+            "type": "missing",
+            "loc": [
+              "body",
+              "query"
+            ],
+            "msg": "Field required",
+            "input": {
+              "question": "What is the role of a debenture trustee?"
+            }
+          }
+        ]
+      },
+      "refusal_detected": false,
+      "refusal_check_pass": false
+    },
+    {
+      "id": "q_011",
+      "question": "What are the limits on lending to a single borrower by NBFCs?",
+      "http_status": 422,
+      "answer": {
+        "detail": [
+          {
+            "type": "missing",
+            "loc": [
+              "body",
+              "query"
+            ],
+            "msg": "Field required",
+            "input": {
+              "question": "What are the limits on lending to a single borrower by NBFCs?"
+            }
+          }
+        ]
+      },
+      "refusal_detected": false,
+      "refusal_check_pass": false
+    },
+    {
+      "id": "q_012",
+      "question": "What are the margin requirements for derivatives trading?",
+      "http_status": 422,
+      "answer": {
+        "detail": [
+          {
+            "type": "missing",
+            "loc": [
+              "body",
+              "query"
+            ],
+            "msg": "Field required",
+            "input": {
+              "question": "What are the margin requirements for derivatives trading?"
+            }
+          }
+        ]
+      },
+      "refusal_detected": false,
+      "refusal_check_pass": false
+    },
+    {
+      "id": "q_013",
+      "question": "What are the fair practices code for housing finance companies?",
+      "http_status": 422,
+      "answer": {
+        "detail": [
+          {
+            "type": "missing",
+            "loc": [
+              "body",
+              "query"
+            ],
+            "msg": "Field required",
+            "input": {
+              "question": "What are the fair practices code for housing finance companies?"
+            }
+          }
+        ]
+      },
+      "refusal_detected": false,
+      "refusal_check_pass": false
+    },
+    {
+      "id": "q_014",
+      "question": "What are the continuous disclosure requirements for listed entities?",
+      "http_status": 422,
+      "answer": {
+        "detail": [
+          {
+            "type": "missing",
+            "loc": [
+              "body",
+              "query"
+            ],
+            "msg": "Field required",
+            "input": {
+              "question": "What are the continuous disclosure requirements for listed entities?"
+            }
+          }
+        ]
+      },
+      "refusal_detected": false,
+      "refusal_check_pass": false
+    },
+    {
+      "id": "q_015",
+      "question": "What are the prudential norms on income recognition and asset classification?",
+      "http_status": 422,
+      "answer": {
+        "detail": [
+          {
+            "type": "missing",
+            "loc": [
+              "body",
+              "query"
+            ],
+            "msg": "Field required",
+            "input": {
+              "question": "What are the prudential norms on income recognition and asset classification?"
+            }
+          }
+        ]
+      },
+      "refusal_detected": false,
+      "refusal_check_pass": false
+    },
+    {
+      "id": "q_016",
+      "question": "What are the rules regarding related party transactions?",
+      "http_status": 422,
+      "answer": {
+        "detail": [
+          {
+            "type": "missing",
+            "loc": [
+              "body",
+              "query"
+            ],
+            "msg": "Field required",
+            "input": {
+              "question": "What are the rules regarding related party transactions?"
+            }
+          }
+        ]
+      },
+      "refusal_detected": false,
+      "refusal_check_pass": false
+    },
+    {
+      "id": "q_017",
+      "question": "What are the guidelines for outsourcing of financial services?",
+      "http_status": 422,
+      "answer": {
+        "detail": [
+          {
+            "type": "missing",
+            "loc": [
+              "body",
+              "query"
+            ],
+            "msg": "Field required",
+            "input": {
+              "question": "What are the guidelines for outsourcing of financial services?"
+            }
+          }
+        ]
+      },
+      "refusal_detected": false,
+      "refusal_check_pass": false
+    },
+    {
+      "id": "q_018",
+      "question": "Are foreign portfolio investors allowed to invest in real estate?",
+      "http_status": 422,
+      "answer": {
+        "detail": [
+          {
+            "type": "missing",
+            "loc": [
+              "body",
+              "query"
+            ],
+            "msg": "Field required",
+            "input": {
+              "question": "Are foreign portfolio investors allowed to invest in real estate?"
+            }
+          }
+        ]
+      },
+      "refusal_detected": false,
+      "refusal_check_pass": false
+    },
+    {
+      "id": "q_019",
+      "question": "Can non-resident Indians hold joint accounts with residents?",
+      "http_status": 422,
+      "answer": {
+        "detail": [
+          {
+            "type": "missing",
+            "loc": [
+              "body",
+              "query"
+            ],
+            "msg": "Field required",
+            "input": {
+              "question": "Can non-resident Indians hold joint accounts with residents?"
+            }
+          }
+        ]
+      },
+      "refusal_detected": false,
+      "refusal_check_pass": false
+    },
+    {
+      "id": "q_020",
+      "question": "Are credit rating agencies regulated by SEBI?",
+      "http_status": 422,
+      "answer": {
+        "detail": [
+          {
+            "type": "missing",
+            "loc": [
+              "body",
+              "query"
+            ],
+            "msg": "Field required",
+            "input": {
+              "question": "Are credit rating agencies regulated by SEBI?"
+            }
+          }
+        ]
+      },
+      "refusal_detected": false,
+      "refusal_check_pass": false
+    },
+    {
+      "id": "q_021",
+      "question": "Does the regulatory sandbox apply to new startups?",
+      "http_status": 422,
+      "answer": {
+        "detail": [
+          {
+            "type": "missing",
+            "loc": [
+              "body",
+              "query"
+            ],
+            "msg": "Field required",
+            "input": {
+              "question": "Does the regulatory sandbox apply to new startups?"
+            }
+          }
+        ]
+      },
+      "refusal_detected": false,
+      "refusal_check_pass": false
+    },
+    {
+      "id": "q_022",
+      "question": "Are mutual funds permitted to borrow funds for investment purposes?",
+      "http_status": 422,
+      "answer": {
+        "detail": [
+          {
+            "type": "missing",
+            "loc": [
+              "body",
+              "query"
+            ],
+            "msg": "Field required",
+            "input": {
+              "question": "Are mutual funds permitted to borrow funds for investment purposes?"
+            }
+          }
+        ]
+      },
+      "refusal_detected": false,
+      "refusal_check_pass": false
+    },
+    {
+      "id": "q_023",
+      "question": "Do primary dealers need a special license for forex trading?",
+      "http_status": 422,
+      "answer": {
+        "detail": [
+          {
+            "type": "missing",
+            "loc": [
+              "body",
+              "query"
+            ],
+            "msg": "Field required",
+            "input": {
+              "question": "Do primary dealers need a special license for forex trading?"
+            }
+          }
+        ]
+      },
+      "refusal_detected": false,
+      "refusal_check_pass": false
+    },
+    {
+      "id": "q_024",
+      "question": "Can unlisted companies issue commercial paper?",
+      "http_status": 422,
+      "answer": {
+        "detail": [
+          {
+            "type": "missing",
+            "loc": [
+              "body",
+              "query"
+            ],
+            "msg": "Field required",
+            "input": {
+              "question": "Can unlisted companies issue commercial paper?"
+            }
+          }
+        ]
+      },
+      "refusal_detected": false,
+      "refusal_check_pass": false
+    },
+    {
+      "id": "q_025",
+      "question": "Are alternative investment funds required to appoint a custodian?",
+      "http_status": 422,
+      "answer": {
+        "detail": [
+          {
+            "type": "missing",
+            "loc": [
+              "body",
+              "query"
+            ],
+            "msg": "Field required",
+            "input": {
+              "question": "Are alternative investment funds required to appoint a custodian?"
+            }
+          }
+        ]
+      },
+      "refusal_detected": false,
+      "refusal_check_pass": false
+    },
+    {
+      "id": "q_026",
+      "question": "What were the margin trading rules in 2021?",
+      "http_status": 422,
+      "answer": {
+        "detail": [
+          {
+            "type": "missing",
+            "loc": [
+              "body",
+              "query"
+            ],
+            "msg": "Field required",
+            "input": {
+              "question": "What were the margin trading rules in 2021?"
+            }
+          }
+        ]
+      },
+      "refusal_detected": false,
+      "refusal_check_pass": false
+    },
+    {
+      "id": "q_027",
+      "question": "How did the NPA classification rules change before 2023?",
+      "http_status": 422,
+      "answer": {
+        "detail": [
+          {
+            "type": "missing",
+            "loc": [
+              "body",
+              "query"
+            ],
+            "msg": "Field required",
+            "input": {
+              "question": "How did the NPA classification rules change before 2023?"
+            }
+          }
+        ]
+      },
+      "refusal_detected": false,
+      "refusal_check_pass": false
+    },
+    {
+      "id": "q_028",
+      "question": "What was the limit for foreign investment in corporate bonds in 2020?",
+      "http_status": 422,
+      "answer": {
+        "detail": [
+          {
+            "type": "missing",
+            "loc": [
+              "body",
+              "query"
+            ],
+            "msg": "Field required",
+            "input": {
+              "question": "What was the limit for foreign investment in corporate bonds in 2020?"
+            }
+          }
+        ]
+      },
+      "refusal_detected": false,
+      "refusal_check_pass": false
+    },
+    {
+      "id": "q_029",
+      "question": "What were the guidelines for independent directors before 2022?",
+      "http_status": 422,
+      "answer": {
+        "detail": [
+          {
+            "type": "missing",
+            "loc": [
+              "body",
+              "query"
+            ],
+            "msg": "Field required",
+            "input": {
+              "question": "What were the guidelines for independent directors before 2022?"
+            }
+          }
+        ]
+      },
+      "refusal_detected": false,
+      "refusal_check_pass": false
+    },
+    {
+      "id": "q_030",
+      "question": "How were payment aggregators regulated in 2019?",
+      "http_status": 422,
+      "answer": {
+        "detail": [
+          {
+            "type": "missing",
+            "loc": [
+              "body",
+              "query"
+            ],
+            "msg": "Field required",
+            "input": {
+              "question": "How were payment aggregators regulated in 2019?"
+            }
+          }
+        ]
+      },
+      "refusal_detected": false,
+      "refusal_check_pass": false
+    },
+    {
+      "id": "q_031",
+      "question": "What were the disclosure requirements for mutual funds in 2018?",
+      "http_status": 422,
+      "answer": {
+        "detail": [
+          {
+            "type": "missing",
+            "loc": [
+              "body",
+              "query"
+            ],
+            "msg": "Field required",
+            "input": {
+              "question": "What were the disclosure requirements for mutual funds in 2018?"
+            }
+          }
+        ]
+      },
+      "refusal_detected": false,
+      "refusal_check_pass": false
+    },
+    {
+      "id": "q_032",
+      "question": "Under what conditions can a bank exceed the single borrower limit?",
+      "http_status": 422,
+      "answer": {
+        "detail": [
+          {
+            "type": "missing",
+            "loc": [
+              "body",
+              "query"
+            ],
+            "msg": "Field required",
+            "input": {
+              "question": "Under what conditions can a bank exceed the single borrower limit?"
+            }
+          }
+        ]
+      },
+      "refusal_detected": false,
+      "refusal_check_pass": false
+    },
+    {
+      "id": "q_033",
+      "question": "Are there exemptions for startups regarding mandatory disclosures?",
+      "http_status": 422,
+      "answer": {
+        "detail": [
+          {
+            "type": "missing",
+            "loc": [
+              "body",
+              "query"
+            ],
+            "msg": "Field required",
+            "input": {
+              "question": "Are there exemptions for startups regarding mandatory disclosures?"
+            }
+          }
+        ]
+      },
+      "refusal_detected": false,
+      "refusal_check_pass": false
+    },
+    {
+      "id": "q_034",
+      "question": "When can an NBFC accept public deposits?",
+      "http_status": 422,
+      "answer": {
+        "detail": [
+          {
+            "type": "missing",
+            "loc": [
+              "body",
+              "query"
+            ],
+            "msg": "Field required",
+            "input": {
+              "question": "When can an NBFC accept public deposits?"
+            }
+          }
+        ]
+      },
+      "refusal_detected": false,
+      "refusal_check_pass": false
+    },
+    {
+      "id": "q_035",
+      "question": "In what cases can trading limits be relaxed for a broker?",
+      "http_status": 422,
+      "answer": {
+        "detail": [
+          {
+            "type": "missing",
+            "loc": [
+              "body",
+              "query"
+            ],
+            "msg": "Field required",
+            "input": {
+              "question": "In what cases can trading limits be relaxed for a broker?"
+            }
+          }
+        ]
+      },
+      "refusal_detected": false,
+      "refusal_check_pass": false
+    },
+    {
+      "id": "q_036",
+      "question": "What are the exceptions to the lock-in period for anchor investors?",
+      "http_status": 422,
+      "answer": {
+        "detail": [
+          {
+            "type": "missing",
+            "loc": [
+              "body",
+              "query"
+            ],
+            "msg": "Field required",
+            "input": {
+              "question": "What are the exceptions to the lock-in period for anchor investors?"
+            }
+          }
+        ]
+      },
+      "refusal_detected": false,
+      "refusal_check_pass": false
+    },
+    {
+      "id": "q_037",
+      "question": "What is the difference in capital requirements between tier 1 and tier 2 UCBs?",
+      "http_status": 422,
+      "answer": {
+        "detail": [
+          {
+            "type": "missing",
+            "loc": [
+              "body",
+              "query"
+            ],
+            "msg": "Field required",
+            "input": {
+              "question": "What is the difference in capital requirements between tier 1 and tier 2 UCBs?"
+            }
+          }
+        ]
+      },
+      "refusal_detected": false,
+      "refusal_check_pass": false
+    },
+    {
+      "id": "q_038",
+      "question": "How do disclosure norms for REITs compare with InvITs?",
+      "http_status": 422,
+      "answer": {
+        "detail": [
+          {
+            "type": "missing",
+            "loc": [
+              "body",
+              "query"
+            ],
+            "msg": "Field required",
+            "input": {
+              "question": "How do disclosure norms for REITs compare with InvITs?"
+            }
+          }
+        ]
+      },
+      "refusal_detected": false,
+      "refusal_check_pass": false
+    },
+    {
+      "id": "q_039",
+      "question": "Compare the reporting requirements for commercial banks vs cooperative banks.",
+      "http_status": 422,
+      "answer": {
+        "detail": [
+          {
+            "type": "missing",
+            "loc": [
+              "body",
+              "query"
+            ],
+            "msg": "Field required",
+            "input": {
+              "question": "Compare the reporting requirements for commercial banks vs cooperative banks."
+            }
+          }
+        ]
+      },
+      "refusal_detected": false,
+      "refusal_check_pass": false
+    },
+    {
+      "id": "q_040",
+      "question": "What are the differences between Category I and Category II AIFs?",
+      "http_status": 422,
+      "answer": {
+        "detail": [
+          {
+            "type": "missing",
+            "loc": [
+              "body",
+              "query"
+            ],
+            "msg": "Field required",
+            "input": {
+              "question": "What are the differences between Category I and Category II AIFs?"
+            }
+          }
+        ]
+      },
+      "refusal_detected": false,
+      "refusal_check_pass": false
+    },
+    {
+      "id": "q_041",
+      "question": "Which entity regulates mutual funds and what is their maximum expense ratio?",
+      "http_status": 422,
+      "answer": {
+        "detail": [
+          {
+            "type": "missing",
+            "loc": [
+              "body",
+              "query"
+            ],
+            "msg": "Field required",
+            "input": {
+              "question": "Which entity regulates mutual funds and what is their maximum expense ratio?"
+            }
+          }
+        ]
+      },
+      "refusal_detected": false,
+      "refusal_check_pass": false
+    },
+    {
+      "id": "q_042",
+      "question": "If an NBFC wants to open a branch, what capital requirement must it meet first according to the latest circular?",
+      "http_status": 422,
+      "answer": {
+        "detail": [
+          {
+            "type": "missing",
+            "loc": [
+              "body",
+              "query"
+            ],
+            "msg": "Field required",
+            "input": {
+              "question": "If an NBFC wants to open a branch, what capital requirement must it meet first according to the latest circular?"
+            }
+          }
+        ]
+      },
+      "refusal_detected": false,
+      "refusal_check_pass": false
+    },
+    {
+      "id": "q_043",
+      "question": "What is the minimum net worth for a portfolio manager and what forms of net worth are eligible?",
+      "http_status": 422,
+      "answer": {
+        "detail": [
+          {
+            "type": "missing",
+            "loc": [
+              "body",
+              "query"
+            ],
+            "msg": "Field required",
+            "input": {
+              "question": "What is the minimum net worth for a portfolio manager and what forms of net worth are eligible?"
+            }
+          }
+        ]
+      },
+      "refusal_detected": false,
+      "refusal_check_pass": false
+    },
+    {
+      "id": "q_044",
+      "question": "Which types of banks can issue credit cards and what is the minimum paid-up capital needed?",
+      "http_status": 422,
+      "answer": {
+        "detail": [
+          {
+            "type": "missing",
+            "loc": [
+              "body",
+              "query"
+            ],
+            "msg": "Field required",
+            "input": {
+              "question": "Which types of banks can issue credit cards and what is the minimum paid-up capital needed?"
+            }
+          }
+        ]
+      },
+      "refusal_detected": false,
+      "refusal_check_pass": false
+    },
+    {
+      "id": "q_045",
+      "question": "How do SEBI and RBI differ on foreign investment limits?",
+      "http_status": 422,
+      "answer": {
+        "detail": [
+          {
+            "type": "missing",
+            "loc": [
+              "body",
+              "query"
+            ],
+            "msg": "Field required",
+            "input": {
+              "question": "How do SEBI and RBI differ on foreign investment limits?"
+            }
+          }
+        ]
+      },
+      "refusal_detected": false,
+      "refusal_check_pass": false
+    },
+    {
+      "id": "q_046",
+      "question": "What are the joint cybersecurity reporting requirements for banks acting as brokers?",
+      "http_status": 422,
+      "answer": {
+        "detail": [
+          {
+            "type": "missing",
+            "loc": [
+              "body",
+              "query"
+            ],
+            "msg": "Field required",
+            "input": {
+              "question": "What are the joint cybersecurity reporting requirements for banks acting as brokers?"
+            }
+          }
+        ]
+      },
+      "refusal_detected": false,
+      "refusal_check_pass": false
+    }
+  ]
+}
