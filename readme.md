@@ -1,1007 +1,308 @@
-
-# TRACECHO — Regulatory Intelligence & Compliance Platform
-
-TRACECHO is an AI-powered regulatory intelligence platform designed to help users search, understand, and analyse Indian financial regulations issued by the **Reserve Bank of India (RBI)** and the **Securities and Exchange Board of India (SEBI)**.
-
-The platform combines **Retrieval-Augmented Generation (RAG)**, hybrid information retrieval, LangGraph-based workflow orchestration, LLM reasoning, guardrails, and regulatory metadata to provide evidence-grounded answers rather than relying solely on an LLM's pretrained knowledge.
-
----
-
-## 1. Project Overview
-
-Financial regulations are distributed across a large number of circulars, master directions, regulations, notifications, and other regulatory publications.
-
-Manually finding the relevant provision can be time-consuming and conventional LLM-based systems may generate unsupported or outdated information.
-
-TRACECHO addresses this problem through two major modules:
-
-### Module 1 — Regulatory Compliance Assistant
-
-An agentic RAG system that:
-
-- Accepts natural-language regulatory questions
-- Identifies the relevant regulator and intent
-- Searches RBI and SEBI regulatory documents
-- Uses hybrid retrieval combining semantic and keyword search
-- Generates evidence-grounded answers using an LLM
-- Displays supporting evidence and citations
-- Performs verification and guardrail checks
-- Returns insufficient-evidence responses when reliable evidence is unavailable
-
-### Module 2 — Regulatory Intelligence Dashboard
-
-A financial intelligence dashboard designed to integrate external financial-market data with regulatory information.
-
-The dashboard provides:
-
-- Market and financial indicators
-- Regulatory corpus statistics
-- Data visualisation
-- Analytical insights
-- Scope for integration with additional financial APIs
-
----
-
-# 2. Objectives
-
-The main objectives of TRACECHO are:
-
-- Build an evidence-grounded regulatory question-answering system
-- Improve retrieval quality using hybrid search
-- Reduce hallucination in regulatory responses
-- Preserve regulatory metadata throughout the RAG pipeline
-- Provide traceable regulatory evidence
-- Handle current and historical regulatory information
-- Detect insufficient evidence instead of fabricating answers
-- Integrate regulatory knowledge with financial intelligence
-- Provide an interactive web-based interface
-
----
-
-# 3. System Architecture
-
-                         TRACECHO
-                            |
-              ┌─────────────┴─────────────┐
-              |                           |
-              ▼                           ▼
-      COMPLIANCE ASSISTANT       INTELLIGENCE DASHBOARD
-              |                           |
-              ▼                           ▼
-        RBI / SEBI Data           External Financial APIs
-              |                           |
-              ▼                           ▼
-       Data Processing             Data Processing
-              |                           |
-              ▼                           ▼
-      Regulatory Chunking             Analytics
-              |                           |
-              ▼                           ▼
-      Hybrid Retrieval             Visualisation
-              |
-              ▼
-          LangGraph
-              |
-       ┌──────┼──────┐
-       ▼      ▼      ▼
-    Query   Retrieval Reasoning
-    Analysis   |
-               ▼
-          Verification
-               |
-               ▼
-          Guardrails
-               |
-               ▼
-     Evidence-Grounded Answer
-
-
----
-
-# 4. Technology Stack
-
-## Programming
-
-* Python
-
-## Data Processing
-
-* Pandas
-* NumPy
-
-## Natural Language Processing
-
-* Sentence Transformers
-* `all-MiniLM-L6-v2`
-
-## Retrieval
-
-* FAISS
-* BM25
-* Hybrid Retrieval
-* Reranking
-
-## Agent Orchestration
-
-* LangGraph
-
-## LLM
-
-* Gemini
-
-## Backend
-
-* FastAPI
-* Uvicorn
-
-## Frontend
-
-* Streamlit
-* HTML
-* CSS
-* JavaScript
-
-## Data Storage
-
-* Parquet
-* FAISS indexes
-* Metadata files
-
-## Visualisation
-
-* Plotly
-* Matplotlib
-
-## Configuration
-
-* Python environment variables
-* `.env`
-
----
-
-# 5. Regulatory Corpus
-
-The platform uses regulatory documents from two major Indian financial regulators.
-
-## RBI
-
-The RBI corpus contains regulatory publications including:
-
-* Master Directions
-* Master Circulars
-* Circulars
-* Notifications
-* NBFC-related regulations
-* KYC / AML / CFT regulations
-* Banking and financial-sector regulations
-* Digital and cybersecurity-related regulations
-* Other relevant RBI regulatory documents
-
-Approximately **1,548 RBI PDFs were initially collected**, followed by filtering and preprocessing for the final corpus.
-
-## SEBI
-
-The SEBI corpus contains:
-
-* Regulations
-* Circulars
-* Master Circulars
-* Guidelines
-* Notifications
-* Investment Adviser regulations
-* Alternative Investment Fund regulations
-* Listed entity requirements
-* Disclosure requirements
-* Market intermediary regulations
-* Investor protection requirements
-* Other SEBI regulatory publications
-
-The SEBI corpus contains approximately **728 document records**.
-
----
-
-# 6. Data Processing Pipeline
-
-The regulatory documents are processed before they become searchable.
-
-
-RBI / SEBI Documents
-        ↓
-Data Validation
-        ↓
-Text Extraction
-        ↓
-Text Cleaning
-        ↓
-Regulatory-Aware Chunking
-        ↓
-Metadata Preservation
-        ↓
-Embedding Generation
-        ↓
-FAISS Index
-        +
-BM25 Index
-
-
-The current processed corpus contains approximately:
-
-10,819 searchable chunks
-
-
-A chunk is a smaller section of a regulatory document that can be independently retrieved.
-
----
-
-# 7. Metadata
-
-Metadata is preserved throughout the retrieval pipeline.
-
-Typical metadata includes:
-
-
-chunk_id
-document_id
-regulator
-document_title
-document_type
-circular_number
-issue_date
-effective_date
-section
-paragraph
-subject
-validity_status
-source_url
-text
-
-
-This allows the system to provide traceable regulatory evidence.
-
----
-
-# 8. Hybrid Retrieval
-
-TRACECHO does not depend on a single retrieval method.
-
-It combines:
-
-### Dense Retrieval
-
-FAISS searches using vector embeddings.
-
-This helps identify documents that are semantically similar even when the exact wording differs.
-
-### Sparse Retrieval
-
-BM25 performs keyword-based retrieval.
-
-This is particularly useful for regulatory terminology, circular numbers, section names, and specific legal terms.
-
-### Hybrid Retrieval
-
-
-             User Query
-                  |
-        ┌─────────┴─────────┐
-        ▼                   ▼
-     FAISS                 BM25
- Semantic Search       Keyword Search
-        |                   |
-        └─────────┬─────────┘
-                  ▼
-           Hybrid Ranking
-                  ↓
-             Top Results
-
-
----
-
-# 9. Embedding Model
-
-The system uses:
-
-
-all-MiniLM-L6-v2
-
-
-The embedding model converts text into numerical vectors.
-
-For example:
-
-"KYC requirements for NBFCs"
-              ↓
-      Sentence Transformer
-              ↓
-       Numerical Vector
-              ↓
-             FAISS
-
-
-This enables semantic similarity search.
-
----
-
-# 10. LangGraph Workflow
-
-LangGraph is used to orchestrate the regulatory question-answering workflow.
-
-
-START
-  ↓
-Query Analysis
-  ↓
-Retrieval
-  ↓
-Relevance Validation
-  ↓
-Reasoning
-  ↓
-Guardrails / Verification
-  ↓
-Final Answer
-
-
-The workflow maintains state containing information such as:
-
-query
-query_intent
-regulator
-retrieval_queries
-retrieved_documents
-reasoning_output
-draft_answer
-verification_output
-final_answer
-
-
----
-
-# 11. Agentic Components
-
-TRACECHO uses multiple functional agent-like stages.
-
-### 1. Query Analysis
-
-Identifies:
-
-* User intent
-* Relevant regulator
-* Regulatory domain
-* Temporal context
-* Search query
-
-### 2. Retrieval
-
-Finds relevant regulatory evidence using:
-
-* FAISS
-* BM25
-* Hybrid ranking
-* Metadata
-* Relevance validation
-
-### 3. Reasoning
-
-Uses Gemini to transform retrieved regulatory evidence into a structured answer.
-
-### 4. Verification / Guardrails
-
-Checks the generated response for:
-
-* Unsupported claims
-* Missing evidence
-* Invalid citations
-* Irrelevant evidence
-* Potential hallucinations
-
----
-
-# 12. Example Query Flow
-
-User asks:
-
-> What are the KYC requirements for NBFCs?
-
-The system processes the question as follows:
-
-User Query
-    ↓
-Query Analysis
-    ↓
-Regulator → RBI
-    ↓
-Generate Search Query
-    ↓
-FAISS + BM25
-    ↓
-Retrieve Relevant RBI Chunks
-    ↓
-Relevance Validation
-    ↓
-Gemini Reasoning
-    ↓
-Verification / Guardrails
-    ↓
-Answer + Evidence + Citation
-
-
----
-
-# 13. Evidence-Grounded Answers
-
-The system is designed so that regulatory answers are based on retrieved evidence.
-
-The UI displays:
-
-* Answer
-* Regulatory requirement
-* Applicability
-* Conditions
-* Supporting evidence
-* Regulatory document
-* Chunk ID
-* Date
-* Regulator
-* Verification status
-
-This allows the user to trace the answer back to the regulatory corpus.
-
----
-
-# 14. Handling Unsupported Questions
-
-A major reliability feature is the handling of questions for which adequate evidence is unavailable.
-
-For example:
-
-> What regulations has SEBI issued for cryptocurrency mining companies operating on Mars?
-
-Instead of inventing a regulation, the system should return:
-
-
-INSUFFICIENT EVIDENCE
-
-
-This is important because retrieval systems can sometimes return the "closest" documents even when those documents are not actually relevant.
-
-TRACECHO therefore includes relevance validation and safe responses.
-
----
-
-# 15. Regulatory Validity
-
-Regulations can change over time.
-
-The system therefore preserves regulatory metadata such as:
-
-
-effective_date
-validity_status
-supersession_status
-version_lineage
-superseded_by_id
-supersession_edges
-
-
-This helps distinguish:
-
-CURRENT
-
-
-from:
-
-
-SUPERSEDED
-
-
-Historical questions can also be handled using the relevant regulatory version where available.
-
----
-
-# 16. Backend Architecture
-
-FastAPI acts as the backend API layer.
-
-
-Streamlit Frontend
-        ↓
-HTTP Request
-        ↓
-FastAPI
-        ↓
-LangGraph Workflow
-        ↓
-RAG Pipeline
-        ↓
-Structured Response
-        ↓
-FastAPI
-        ↓
-Streamlit
-
-
-The main question-answering endpoint is:
-
-POST /api/ask
-
-
----
-
-# 17. Frontend
-
-The user interface is built using:
-
-* Streamlit
-* HTML
-* CSS
-* JavaScript
-
-The application contains:
-
-
 TRACECHO
 
-├── Regulatory Assistant
-├── Intelligence Dashboard
-├── Document Explorer
-└── System / Evaluation
+AI-Powered Regulatory Intelligence
 
+Making regulatory information easier to discover, understand, and navigate — with answers grounded in documentary evidence.
 
-The Regulatory Assistant displays:
+TRACECHO is an AI-powered regulatory intelligence platform designed to simplify research across complex financial regulations. It uses Retrieval-Augmented Generation (RAG) to retrieve relevant regulatory documents and generate clear, source-backed answers.
 
-* Query analysis
-* Answer
-* Regulatory details
-* Applicability
-* Conditions
-* Supporting evidence
-* Citations
-* Retrieved chunks
-* Verification status
+The platform currently focuses on regulatory information from the Reserve Bank of India (RBI) and the Securities and Exchange Board of India (SEBI).
 
----
+Overview
 
-# 18. Regulatory Intelligence Dashboard
+Regulatory information is often distributed across extensive circulars, notifications, guidelines, and amendments. Finding the right information and understanding its context can be time-consuming.
 
-The dashboard is designed as a separate intelligence module.
+TRACECHO addresses this challenge through:
 
-Its architecture is:
+Intelligent Regulatory Search: Discover relevant information across regulatory documents.
 
+AI-Powered Question Answering: Ask questions in natural language and receive contextual responses.
 
-External Financial API
-        ↓
-API Client
-        ↓
-Data Validation
-        ↓
-Data Processing
-        ↓
-Analytics
-        ↓
-Dashboard
+Hybrid Retrieval: Combine semantic vector search with keyword-based retrieval.
 
+Source Citations: Trace generated answers back to supporting regulatory documents.
 
-Potential dashboard features include:
+Evidence Verification: Apply verification and guardrails to reduce unsupported responses.
 
-### Market Overview
+Responsible AI: Identify insufficient evidence rather than confidently generating unsupported answers.
 
-* Market indices
-* Daily changes
-* Market trends
-* Volume
+Key Features
 
-### Sector Analysis
+Feature
 
-* Sector performance
-* Comparative trends
-* Sector indicators
+Description
 
-### Time-Series Analysis
+AI Regulatory Assistant
 
-* Historical movements
-* Rolling averages
-* Volatility indicators
+Ask questions about RBI and SEBI regulations.
 
-### Regulatory Context
+Hybrid Search
 
-Financial/market observations can be connected to relevant regulatory domains.
+Combine FAISS vector retrieval and BM25 keyword search.
 
----
+Contextual Answers
 
-# 19. API Configuration
+Generate responses using retrieved regulatory evidence.
 
-External APIs are configured using environment variables.
+Source Attribution
 
-Example:
+Display supporting documents and citations.
 
-```env
-ALPHA_VANTAGE_API_KEY=YOUR_KEY_HERE
-```
-
-API keys are not hard-coded into the source code.
-
-Additional financial APIs can be integrated in future versions.
-
----
-
-# 20. Evaluation Framework
-
-The system should be evaluated at both the retrieval and answer-generation levels.
-
-## Retrieval Metrics
-
-### Precision@K
-
-Measures how many of the top K retrieved chunks are relevant.
-
-### Recall@K
-
-Measures how many relevant chunks were successfully retrieved.
-
-### MRR
-
-Mean Reciprocal Rank measures how early the first relevant result appears.
-
-### nDCG
-
-Measures the quality of the ranking, giving more importance to highly relevant results appearing near the top.
-
----
-
-# 21. Retrieval Comparison
-
-The proposed retrieval architecture can be compared against:
-
-
-Vector Retrieval
-       vs
-BM25
-       vs
-Hybrid Retrieval
-       vs
-Hybrid + Reranking
-
-
-This allows the project to measure whether combining semantic and keyword retrieval improves performance.
-
----
-
-# 22. Answer Evaluation
-
-Generated answers can be evaluated using:
-
-* Answer correctness
-* Faithfulness
-* Context relevance
-* Citation accuracy
-* Unsupported claim rate
-* Hallucination rate
-
-The evaluation should determine whether the generated answer is actually supported by the retrieved regulatory evidence.
-
----
-
-# 23. Baseline Comparison
-
-The proposed system can be compared against simpler architectures.
-
-### Baseline 1 — LLM Only
-
-```text
-Question
-   ↓
-LLM
-   ↓
-Answer
-```
-
-### Baseline 2 — Vector RAG
-
-```text
-Question
-   ↓
-Vector Search
-   ↓
-LLM
-   ↓
-Answer
-```
-
-### Baseline 3 — Hybrid RAG
-
-```text
-Question
-   ↓
-BM25 + Vector Search
-   ↓
-LLM
-   ↓
-Answer
-```
-
-### Proposed System
-
-```text
-Question
-   ↓
-Query Analysis
-   ↓
-Hybrid Retrieval
-   ↓
-Relevance Validation
-   ↓
-Reasoning
-   ↓
-Verification
-   ↓
 Guardrails
-   ↓
-Verified Answer
-```
 
----
+Detect insufficient evidence and unsupported responses.
 
-# 24. Hallucination Risk and Mitigation
+Document Explorer
 
-LLMs can generate information that is not supported by the source documents.
+Explore the regulatory document collection.
 
-TRACECHO reduces this risk by grounding responses in retrieved RBI and SEBI evidence, validating retrieval relevance, displaying supporting evidence, and applying verification and guardrails before returning the final answer. When adequate evidence is unavailable, the system is designed to return an insufficient-evidence response instead of fabricating regulatory information.
+Evaluation
 
----
+Assess retrieval and answer quality.
 
-# 25. Advantages
+User Authentication
 
-* Evidence-grounded regulatory answers
-* Hybrid semantic and keyword retrieval
-* RBI and SEBI regulatory coverage
-* Regulatory metadata preservation
-* Support for temporal regulatory context
-* Citation and evidence visibility
-* Reduced hallucination risk
-* Insufficient-evidence handling
-* Modular LangGraph architecture
-* Interactive Streamlit interface
-* FastAPI backend
-* Extensible financial intelligence dashboard
-* Suitable for future RegTech applications
+JWT-based signup and sign-in with PostgreSQL.
 
----
+Architecture
 
-# 26. Limitations
+TRACECHO follows a multi-stage RAG architecture.
 
-* Answer quality depends on the completeness and quality of the regulatory corpus.
-* The system may retrieve partially relevant documents for highly ambiguous questions.
-* Regulatory interpretation ultimately requires human/legal expertise.
-* External LLM APIs introduce availability and rate-limit dependencies.
-* External financial APIs may have rate limits and data-access restrictions.
-* Current dashboard functionality depends on the availability and reliability of external market data.
-* Citation metadata and document-level aggregation can require additional validation.
-* The system should not be treated as a substitute for professional legal or compliance advice.
+              User Question
+                    |
+                    v
+             Query Analysis
+                    |
+                    v
+             Hybrid Retrieval
+              /          \
+             v            v
+        FAISS Search   BM25 Search
+             \            /
+              v          v
+          Retrieved Documents
+                    |
+                    v
+             AI Reasoning
+                    |
+                    v
+          Evidence Verification
+                    |
+              +-----+-----+
+              |           |
+              v           v
+        Supported      Insufficient
+          Answer         Evidence
+              |           |
+              v           v
+          Citations    Responsible
+                        Response
 
----
+Technology Stack
 
-# 27. Future Enhancements
+Frontend
 
-Planned improvements include:
+React
 
-* Add more financial-market APIs to the dashboard.
-* Integrate additional real-time market and economic indicators.
-* Add predictive analytics for market and sector trends.
-* Develop forecasting models for selected financial indicators.
-* Add anomaly and risk detection to the intelligence dashboard.
-* Expand the regulatory corpus with newly issued RBI and SEBI documents automatically.
-* Improve regulatory version and supersession tracking.
-* Add more sophisticated reranking models.
-* Expand the evaluation benchmark to 100–200+ regulatory questions.
-* Add multilingual regulatory question support.
-* Introduce document-level comparison between current and historical regulations.
-* Improve dashboard-to-compliance-assistant integration.
-* Add automated alerts for important regulatory changes.
+TypeScript
 
----
+Vite
 
-# 28. Project Structure
+Tailwind CSS
 
-```text
-regintel/
+Backend
+
+Python
+
+FastAPI
+
+LangGraph
+
+Retrieval and AI
+
+FAISS
+
+BM25
+
+Sentence Transformers (all-MiniLM-L6-v2)
+
+Gemini API
+
+Retrieval-Augmented Generation (RAG)
+
+Database and Authentication
+
+PostgreSQL
+
+SQLAlchemy
+
+Alembic
+
+JWT Authentication
+
+Development Tools
+
+Git and GitHub
+
+Jupyter Notebook / Google Colab
+
+VS Code
+
+Project Structure
+
+TRACECHO/
 │
-├── data/
-│   ├── raw/
-│   ├── processed/
-│   └── evaluation/
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── context/
+│   │   └── ...
+│   └── package.json
 │
-├── ingestion/
-│   ├── loaders.py
-│   ├── cleaner.py
-│   ├── chunker.py
-│   └── metadata.py
-│
-├── retrieval/
-│   ├── embeddings.py
-│   ├── vector_store.py
-│   ├── bm25.py
-│   ├── hybrid_search.py
-│   └── reranker.py
-│
-├── agents/
-│   ├── retrieval_agent.py
-│   ├── reasoning_agent.py
-│   └── verification_agent.py
-│
-├── graph/
-│   ├── state.py
-│   ├── nodes.py
-│   └── workflow.py
-│
-├── guardrails/
-│   ├── schemas.py
-│   └── validators.py
-│
-├── prompts/
-│   ├── retrieval.py
-│   ├── reasoning.py
-│   └── verification.py
-│
-├── rag/
-│   ├── context_builder.py
-│   ├── citation.py
-│   └── pipeline.py
-│
-├── dashboard/
-│   ├── api_client.py
-│   ├── data_processor.py
-│   ├── analytics.py
-│   └── charts.py
-│
-├── evaluation/
-│   ├── benchmark.py
-│   ├── retrieval_metrics.py
-│   ├── answer_metrics.py
-│   └── evaluation_runner.py
-│
-├── api/
-│   └── main.py
-│
-├── ui/
-│   └── app.py
-│
-├── config/
-│   └── settings.py
-│
-├── tests/
+├── regintel/
+│   ├── api/
+│   ├── db/
+│   ├── retrieval/
+│   ├── ...
+│   ├── alembic/
+│   └── ui/
 │
 ├── .env.example
-├── requirements.txt
+├── .gitignore
 └── README.md
-```
 
----
+The structure above is a simplified overview; individual directories may evolve as development progresses.
 
-# 29. Running the Project
+Getting Started
 
-## 1. Activate the Python environment
+Prerequisites
 
-Use the project's configured Python environment.
+Python 3.10+
 
-## 2. Configure environment variables
+Node.js and npm
 
-Create a `.env` file and configure the required API keys.
+PostgreSQL
 
-Example:
+Git
 
-```env
-ALPHA_VANTAGE_API_KEY=YOUR_KEY_HERE
-```
+Gemini API key
 
-Configure the required LLM/API credentials according to the project environment.
+1. Clone the repository
 
-## 3. Start FastAPI
+git clone https://github.com/karlinnn/tracecho.git
+cd tracecho
 
-From the `regintel` directory:
+2. Configure environment variables
 
-```bash
-python -m uvicorn api.main:app --host 127.0.0.1 --port 8000 --reload
-```
+Create a .env file in the project root using the variables required by the application.
 
-## 4. Start Streamlit
+Example configuration:
+
+DATABASE_URL=postgresql+psycopg://USER:PASSWORD@localhost:5432/tracecho
+GEMINI_API_KEY=your_gemini_api_key
+
+Add any additional variables required by your local configuration, including optional SMTP settings for contact email notifications.
+
+Never commit .env or expose API keys and credentials.
+
+3. Set up the Python environment
+
+python -m venv .venv
+
+Activate it:
+
+.\.venv\Scripts\Activate.ps1
+
+Install dependencies:
+
+pip install -r requirements.txt
+
+4. Run database migrations
+
+From the project root:
+
+cd regintel
+..\.venv\Scripts\python.exe -m alembic -c alembic.ini upgrade head
+
+5. Start the backend
+
+From the project root:
+
+.\.venv\Scripts\python.exe -m uvicorn regintel.api.main:app --reload --port 8000
+
+Backend API:
+
+http://127.0.0.1:8000
+
+Interactive API documentation:
+
+http://127.0.0.1:8000/docs
+
+6. Start the frontend
 
 Open another terminal:
 
-```bash
-streamlit run ui/app.py
-```
+cd frontend
+npm install
+npm run dev
 
-The application will be available through the Streamlit local URL.
+Open the local development URL displayed by Vite, usually:
 
----
+http://localhost:5173
 
-# 30. Example Output
+Responsible AI and Reliability
 
-For a query such as:
+TRACECHO is designed around evidence-grounded generation.
 
-```text
-What are the KYC requirements for NBFCs?
-```
+Rather than treating every generated response as automatically correct, the system incorporates:
 
-TRACECHO can display:
+Retrieval from regulatory source documents.
 
-```text
-Query Analysis
-    ↓
-Regulator: RBI
+Context-aware answer generation.
 
-Retrieved Evidence
-    ↓
-Relevant RBI regulatory chunks
+Source attribution.
 
-Answer
-    ↓
-Evidence-grounded regulatory response
+Evidence verification.
 
-Regulatory Basis
-    ↓
-Document + Chunk ID + Date + Regulator
+Guardrails for insufficient or unsupported information.
 
-Verification
-    ↓
-Evidence Grounded
-Citation Checked
-```
+The objective is to make regulatory research more transparent and traceable, not to replace professional legal, compliance, or financial advice.
 
----
+Roadmap
 
-# 31. Research Questions
+Potential areas of continued development:
 
-The project investigates:
+Advanced hybrid retrieval and reranking.
 
-### RQ1
+Improved document versioning and regulatory amendment tracking.
 
-Does hybrid retrieval improve retrieval quality compared with vector-only retrieval?
+Expanded evaluation datasets and retrieval metrics.
 
-### RQ2
+Persistent query history and user feedback.
 
-Does regulatory metadata and supersession awareness reduce outdated regulatory answers?
+PostgreSQL-backed evaluation history.
 
-### RQ3
+Administrative enquiry management.
 
-Does verification reduce unsupported claims and hallucination?
+Configurable email notifications.
 
-### RQ4
+Expanded regulatory document coverage.
 
-Does agentic RAG improve citation accuracy compared with conventional RAG?
+Disclaimer
 
-### RQ5
+TRACECHO is an AI-powered research and information discovery project. Its generated responses may contain inaccuracies or omissions.
 
-Does integrating financial-market data with regulatory intelligence improve the usefulness of the platform for compliance-oriented analysis?
+Always consult the original RBI and SEBI publications and qualified professionals before making regulatory, legal, financial, or compliance decisions.
 
----
+Author
 
-# 32. Conclusion
+Karlin Francis
 
-TRACECHO combines regulatory document retrieval, LLM-based reasoning, verification, and financial intelligence into a unified RegTech platform.
+MSc Data Science | AI/ML Engineering
 
-The system moves beyond a conventional chatbot by combining:
+GitHub: https://github.com/karlinnn
 
-```text
-Regulatory Documents
-        +
-Hybrid Retrieval
-        +
-LangGraph Workflow
-        +
-LLM Reasoning
-        +
-Verification
-        +
-Guardrails
-        +
-Financial Intelligence
-        ↓
-TRACECHO
-```
+LinkedIn: https://www.linkedin.com/in/karlin-francis-ab69b2213/
 
-The primary focus is on **accuracy, evidence grounding, traceability, regulatory validity, and reduced hallucination**, making the platform suitable as a foundation for further research and development in AI-assisted regulatory intelligence.
-
-```
-```
+TRACECHO — Regulatory intelligence, grounded in evidence.
