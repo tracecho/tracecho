@@ -24,3 +24,4 @@ python-jose[cryptography]
 passlib[bcrypt]
 python-multipart
 google-genai
+rank-bm25
