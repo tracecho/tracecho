@@ -1,6 +1,15 @@
 import os
 import re
 import sys
+from pathlib import Path
+
+from dotenv import load_dotenv
+
+# Ensure workspace .env files are loaded before any application modules are imported
+_proj_root = Path(__file__).resolve().parents[1]
+_pkg_root = Path(__file__).resolve().parent.parent
+load_dotenv(_proj_root / ".env", override=False)
+load_dotenv(_pkg_root / ".env", override=False)
 
 import uvicorn
 from fastapi import FastAPI, HTTPException
@@ -10,9 +19,30 @@ _PKG_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 if _PKG_ROOT not in sys.path:
     sys.path.insert(0, _PKG_ROOT)
 
+from fastapi.middleware.cors import CORSMiddleware
+
 from graph.workflow import run as run_workflow
+from api.dashboard import router as dashboard_router
+from api.explorer import router as explorer_router
+from api.evaluation import router as evaluation_router
+from api.auth import router as auth_router
+from api.contact import router as contact_router
 
 app = FastAPI(title="RegIntel API", description="Agentic Regulatory Intelligence Platform API")
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+app.include_router(auth_router)
+app.include_router(contact_router)
+app.include_router(dashboard_router)
+app.include_router(explorer_router)
+app.include_router(evaluation_router)
 
 
 class QueryRequest(BaseModel):
@@ -278,102 +308,6 @@ async def ask_assistant(request: QueryRequest):
     logger.info(f"Retrieval Debug Info: {json.dumps(log_data)}")
 
     return response
-
-
-@app.get("/api/dashboard")
-async def get_dashboard_data():
-    import json, os, requests
-    
-    # Find .env by traversing upwards from _PKG_ROOT
-    alpha_vantage_key = os.environ.get("ALPHA_VANTAGE_API_KEY")
-    if not alpha_vantage_key:
-        current_dir = _PKG_ROOT
-        while current_dir and current_dir != os.path.dirname(current_dir):
-            env_path = os.path.join(current_dir, ".env")
-            if os.path.exists(env_path):
-                with open(env_path, "r", encoding="utf-8") as f:
-                    for line in f:
-                        line = line.strip()
-                        if line.startswith("ALPHA_VANTAGE_API_KEY="):
-                            alpha_vantage_key = line.split("=", 1)[1].strip(' "\'')
-                if alpha_vantage_key:
-                    break
-            current_dir = os.path.dirname(current_dir)
-    
-    market_overview = {}
-    market_error = None
-    if alpha_vantage_key:
-        try:
-            url = f"https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=IBM&apikey={alpha_vantage_key}"
-            res = requests.get(url, timeout=5)
-            if res.status_code == 200:
-                data = res.json()
-                if "Global Quote" in data and data["Global Quote"]:
-                    q = data["Global Quote"]
-                    market_overview["IBM Price"] = f"${float(q.get('05. price', 0)):.2f}"
-                    market_overview["IBM Change"] = q.get("10. change percent", "0%")
-                else:
-                    market_error = "API error: Check rate limit or format"
-        except Exception as e:
-            market_error = str(e)
-    else:
-        market_error = "Alpha Vantage API key not found in .env"
-        
-    doc_stats = {"total": 0, "total_chunks": 0, "rbi_count": 0, "sebi_count": 0}
-    recent_documents = []
-    categories = {}
-    
-    meta_path = os.path.join(_PKG_ROOT, "data", "processed", "faiss_meta.json")
-    if os.path.exists(meta_path):
-        try:
-            with open(meta_path, "r", encoding="utf-8") as f:
-                faiss_meta = json.load(f)
-                doc_stats["total_chunks"] = len(faiss_meta)
-                
-                unique_docs = {}
-                for m in faiss_meta:
-                    doc_id = m.get("document_id") or m.get("chunk_id")
-                    if doc_id and doc_id not in unique_docs:
-                        unique_docs[doc_id] = m
-
-                doc_stats["total"] = len(unique_docs)
-                
-                for m in unique_docs.values():
-                    reg = m.get("regulator", "").upper()
-                    if reg == "RBI":
-                        doc_stats["rbi_count"] += 1
-                    elif reg == "SEBI":
-                        doc_stats["sebi_count"] += 1
-                    
-                    cat = m.get("document_type", "Other")
-                    if cat:
-                        categories[cat] = categories.get(cat, 0) + 1
-
-                docs_list = list(unique_docs.values())
-                docs_list.sort(key=lambda x: str(x.get("issue_date", "")), reverse=True)
-                
-                recent_documents = [
-                    {
-                        "regulator": d.get("regulator", "Unknown"),
-                        "document_title": _clean_document_title(d.get("document_title")),
-                        "issue_date": d.get("issue_date", "N/A"),
-                    }
-                    for d in docs_list[:5]
-                ]
-                
-                sorted_cats = sorted(categories.items(), key=lambda x: x[1], reverse=True)
-                categories = dict(sorted_cats[:5])
-                
-        except Exception:
-            pass
-
-    return {
-        "market_overview": market_overview,
-        "market_error": market_error if market_error and not market_overview else None,
-        "document_stats": doc_stats,
-        "recent_documents": recent_documents,
-        "categories": categories,
-    }
 
 
 if __name__ == "__main__":

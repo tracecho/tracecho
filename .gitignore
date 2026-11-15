@@ -20,6 +20,7 @@ env/
 *.pt
 *.pth
 *.bin
+!**/faiss_index.bin
 *.safetensors
 
 # Generated indexes / caches
@@ -38,3 +39,6 @@ build/
 # OS files
 .DS_Store
 Thumbs.db
+# Frontend dependencies and build cache
+**/node_modules/
+**/.vite/

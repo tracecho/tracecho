@@ -34,7 +34,20 @@ class RegintelHybridRetriever:
         
         # INCREASE K to allow for filtering and reranking
         candidate_k = max(k*3, 50)
-        dense_results = self.vector_store.search(query_emb, k=candidate_k)
+
+        dense_results = []
+        faiss_available = False
+        if getattr(self.vector_store, "index", None) is not None:
+            try:
+                dense_results = self.vector_store.search(query_emb, k=candidate_k)
+                faiss_available = True
+            except Exception as e:
+                import logging
+                logging.getLogger("regintel.retrieval").warning("FAISS search failed, falling back to BM25: %s", e)
+        else:
+            import logging
+            logging.getLogger("regintel.retrieval").warning("FAISS index unavailable, falling back to BM25.")
+
         sparse_results = self.bm25_store.search(query, k=candidate_k)
         
         dense_raw = {cid: sc for cid, sc in dense_results}
@@ -42,6 +55,7 @@ class RegintelHybridRetriever:
         
         dense_norm = self._normalize_dense(dense_results)
         sparse_norm = self._normalize_bm25(sparse_results)
+        effective_alpha = alpha if faiss_available else 0.0
         
         query_lower = query.lower()
         entities = ['ucb', 'urban co-operative', 'payments bank', 'nbfc', 'co-operative bank', 'rrb', 'regional rural bank']
@@ -65,7 +79,7 @@ class RegintelHybridRetriever:
 
             ds = dense_norm.get(cid, 0.0)
             ss = sparse_norm.get(cid, 0.0)
-            base_score = (alpha * ds) + ((1 - alpha) * ss)
+            base_score = (effective_alpha * ds) + ((1 - effective_alpha) * ss)
             
             auth_adj = 0.0
             doc_type = str(row.get('document_type', '')).lower()

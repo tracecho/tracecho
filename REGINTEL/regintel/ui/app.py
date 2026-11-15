@@ -1,5 +1,18 @@
+import os
+import sys
+
+# Ensure the regintel package root is on sys.path regardless of CWD.
+# Launch command: python -m streamlit run regintel/ui/app.py  (CWD = REGINTEL/)
+_UI_DIR = os.path.dirname(os.path.abspath(__file__))          # …/regintel/ui
+_PKG_ROOT = os.path.dirname(_UI_DIR)                          # …/regintel
+if _PKG_ROOT not in sys.path:
+    sys.path.insert(0, _PKG_ROOT)
+
 import streamlit as st
 import requests
+from ui.dashboard import render as render_dashboard
+from ui.explorer import render as render_explorer
+from ui.evaluation import render as render_evaluation
 
 st.set_page_config(page_title="TRACECHO", layout="wide")
 
@@ -456,69 +469,12 @@ if page == "Regulatory Assistant":
                         if st.button("Try Again"):
                             pass
 
-elif page == "Intelligence Dashboard":
-    st.markdown('<h1 class="tracecho-title">Dashboard</h1>', unsafe_allow_html=True)
-    st.markdown('<p class="tracecho-subtitle" style="margin-bottom: 2rem;">System Overview and Metrics</p>', unsafe_allow_html=True)
-    
-    try:
-        res = requests.get(f"{API_URL}/dashboard")
-        if res.status_code == 200:
-            data = res.json()
-            
-            st.markdown("### Market & Financial Overview")
-            if "market_error" in data:
-                st.warning(f"Market Data Unavailable: {data['market_error']}")
-            else:
-                market_cols = st.columns(len(data.get("market_overview", {})))
-                for col, (k, v) in zip(market_cols, data.get("market_overview", {}).items()):
-                    with col:
-                        st.metric(k, v)
-            
-            st.divider()
-            
-            col1, col2 = st.columns(2)
-            with col1:
-                st.markdown("### Document Intelligence Stats")
-                stats = data.get("document_stats", {})
-                
-                inner_c1, inner_c2 = st.columns(2)
-                with inner_c1:
-                    st.metric("Total Documents", stats.get("total", 0))
-                with inner_c2:
-                    st.metric("Total Chunks", stats.get("total_chunks", 0))
-                    
-                st.markdown(f"""
-                <div class="metric-card" style="margin-top: 15px; margin-bottom: 15px;">
-                    <div><b>RBI Documents:</b> {stats.get('rbi_count', 0)}</div>
-                    <div><b>SEBI Documents:</b> {stats.get('sebi_count', 0)}</div>
-                </div>
-                """, unsafe_allow_html=True)
-                
-                categories = data.get("categories", {})
-                if categories:
-                    st.markdown("#### Top Document Categories")
-                    cat_html = "".join([f"<li>{cat}: {count}</li>" for cat, count in categories.items()])
-                    st.markdown(f"<ul style='color: var(--text-secondary);'>{cat_html}</ul>", unsafe_allow_html=True)
 
-            with col2:
-                st.markdown("### Recent Regulatory Documents")
-                for doc in data.get("recent_documents", []):
-                    st.markdown(f"""
-                    <div class="citation-card" style="border-left: 4px solid #0B1F3A; border-top: 2px solid var(--accent-blue);">
-                        <b>{doc.get('regulator', 'Unknown')}</b><br/>
-                        <span style="color:var(--text-secondary); font-size:0.9rem;">{doc.get('document_title', 'Untitled')}</span><br/>
-                        <span style="color:var(--accent-blue); font-size:0.8rem;">Issue Date: {doc.get('issue_date', 'N/A')}</span>
-                    </div>
-                    """, unsafe_allow_html=True)
-        else:
-            st.error("Could not load dashboard data.")
-    except Exception as e:
-        st.error(f"Backend not reachable: {e}")
+elif page == "Intelligence Dashboard":
+    render_dashboard(API_URL)
 
 elif page == "Document Explorer":
-    st.markdown('<h1 class="tracecho-title">Explorer</h1>', unsafe_allow_html=True)
-    st.write("Browse the processed SEBI and RBI corpus (To Be Implemented)")
+    render_explorer(API_URL)
 
 elif page == "System/Evaluation":
-    st.markdown('<h1 class="tracecho-title">Evaluation</h1>', unsafe_allow_html=True)
-    st.write("Retrieve MRR, Recall@K, and Agent metrics here (To Be Implemented)")
+    render_evaluation(API_URL)

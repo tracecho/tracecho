@@ -1,14 +1,21 @@
-import pandas as pd
-import json
 import os
+import json
+import pandas as pd
+
+_DEFAULT_DATA_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "data", "processed"))
 
 class MetadataStore:
-    def __init__(self, metadata_path=r"D:\REGINTEL-20260820T084445Z-1-001\REGINTEL\regintel\data\processed\metadata.json"):
+    def __init__(self, metadata_path: str = ""):
+        if not metadata_path:
+            metadata_path = os.path.join(_DEFAULT_DATA_DIR, "metadata.json")
         self.metadata_path = metadata_path
         self.metadata = {}
 
-    def build_store(self, sebi_path="d:/REGINTEL/regintel/data/processed/sebi_chunks.parquet", 
-                          rbi_path="d:/REGINTEL/regintel/data/processed/rbi_chunks.parquet"):
+    def build_store(self, sebi_path: str = "", rbi_path: str = ""):
+        if not sebi_path:
+            sebi_path = os.path.join(_DEFAULT_DATA_DIR, "sebi_chunks.parquet")
+        if not rbi_path:
+            rbi_path = os.path.join(_DEFAULT_DATA_DIR, "rbi_chunks.parquet")
         sebi_df = pd.read_parquet(sebi_path)
         rbi_df = pd.read_parquet(rbi_path)
         df = pd.concat([sebi_df, rbi_df], ignore_index=True)

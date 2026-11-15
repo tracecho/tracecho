@@ -9,9 +9,12 @@ from retrieval.hybrid_search import RegintelHybridRetriever
 from retrieval.metadata_store import MetadataStore
 from evaluation.retrieval_metrics import evaluate_retrieval
 
+_PKG_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__)))
+_DEFAULT_DATA_DIR = os.path.join(_PKG_ROOT, "data", "processed")
+
 def build_indexes():
-    sebi_df = pd.read_parquet(r"d:\REGINTEL\regintel\data\processed\sebi_chunks.parquet")
-    rbi_df = pd.read_parquet(r"d:\REGINTEL\regintel\data\processed\rbi_chunks.parquet")
+    sebi_df = pd.read_parquet(os.path.join(_DEFAULT_DATA_DIR, "sebi_chunks.parquet"))
+    rbi_df = pd.read_parquet(os.path.join(_DEFAULT_DATA_DIR, "rbi_chunks.parquet"))
     
     # Combined for indexing
     df = pd.concat([sebi_df, rbi_df], ignore_index=True)
@@ -70,7 +73,7 @@ def test_queries(retriever):
 
 def evaluate(retriever):
     print("\n--- EVALUATION ---")
-    queries_path = r"d:\REGINTEL\regintel\evaluation\golden_queries.json"
+    queries_path = os.path.join(_PKG_ROOT, "evaluation", "golden_queries.json")
     if not os.path.exists(queries_path):
         print(f"Evaluation file not found: {queries_path}")
         return
@@ -85,7 +88,7 @@ def evaluate(retriever):
 
 if __name__ == '__main__':
     # Checking if index exists
-    if not os.path.exists("d:/REGINTEL/regintel/data/processed/faiss_index.bin"):
+    if not os.path.exists(os.path.join(_DEFAULT_DATA_DIR, "faiss_index.bin")):
         build_indexes()
         
     retriever = load_system()
